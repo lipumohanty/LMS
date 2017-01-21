@@ -16,7 +16,7 @@ if (isset($_POST["submit"])) {
                         <div class="control-group" style="background-color: white;">
                             <div class="span11" style="clear: both "></div>
                             <div class="span11">
-                                <div class="span6"  style="float: left">
+                                <div class="span11"  style="float: left">
                                     <label class="control-label ">LEAVE&nbsp;TYPE:&nbsp;</label>
                                     <div class="controls">
                                         <input type="text" name="name" autofocus=""  value="" maxlength="30" class="span12"  required="" placeholder="" />
@@ -24,7 +24,7 @@ if (isset($_POST["submit"])) {
                                 </div>
                             </div>
                             <div class="span11">
-                                <div class="span6"  style="float: left">
+                                <div class="span11"  style="float: left">
                                     <label class="control-label ">DESCRIPTION&nbsp;:&nbsp;</label>
                                     <div class="controls">
                                         <input type="text" name="description"  value=""  maxlength="255" class="span12"  required="" placeholder="" />
@@ -32,7 +32,7 @@ if (isset($_POST["submit"])) {
                                 </div>
                             </div>
                             <div class="span11">
-                                <div class="span6"  style="float: left">
+                                <div class="span11"  style="float: left">
                                     <label class="control-label ">NO&nbsp;OF&nbsp;COUNT:&nbsp;</label>
                                     <div class="controls">
                                         <input type="text" name="counter" value="" maxlength="" class="span12" onKeyPress="return isNumberKey(event)"  placeholder="" />
@@ -41,7 +41,7 @@ if (isset($_POST["submit"])) {
                                 
                             </div>
                             <div class="span11">
-                                <div class="span6"  style="float: left">
+                                <div class="span11"  style="float: left">
                                     <label class="control-label ">&nbsp;ADDED&nbsp;DATE:&nbsp;</label>
                                     <div class="controls">
                                         <input type="text" name="add_date" value="" maxlength="" class="span12"   placeholder="" />
@@ -50,7 +50,7 @@ if (isset($_POST["submit"])) {
                                 
                             </div>
                             <div class="span11">
-                                <div class="span6"  style="float: left">
+                                <div class="span11"  style="float: left">
                                     <label class="control-label ">&nbsp;ADDED&nbsp;BY:&nbsp;</label>
                                     <div class="controls">
                                         <input type="text" name="add_by" value="" maxlength="" class="span12"   placeholder="" />
@@ -59,11 +59,11 @@ if (isset($_POST["submit"])) {
                                 
                             </div>
                             <div class="span11">
-                            <div class="span6"  style="float: left">
+                            <div class="span11"  style="float: left">
                                     <label class="control-label ">IS&nbsp;ACTIVE:&nbsp;</label>
                                     <div class="controls">
                                         <select class="span12" id="is_active" name="is_active">
-                                                 <option value="">Select</option>
+                                                 
                                                 <option value="yes">Yes</option>
                                                 <option value="no">No</option>
                                            
@@ -78,7 +78,8 @@ if (isset($_POST["submit"])) {
                                    
                                     <a href=""><button type="submit" name="submit" class="btn btn-success">ADD</button>
                                     <button type="reset" class="btn btn-primary">RESET</button>
-                                    
+                                    <a href="index.php?requestPage=view_employee"><button type="button" class="btn btn-info">VIEW</button></a>
+                                     <a href="index.php?requestPage=edit_leave"><button type="button" class="btn btn-info">EDIT</button></a>
                                 </div>
                             </center>
                         </div>
