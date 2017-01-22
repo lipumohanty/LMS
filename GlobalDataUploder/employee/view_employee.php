@@ -1,7 +1,4 @@
-<?php
 
-
-?>
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="span12">
@@ -58,18 +55,16 @@
               </thead>
               <tbody>
                 <tr class="gradeX">
-                  <td>Trident</td>
-                  <td>Internet
-                    Explorer 4.0</td>
-                  <td>Win 95+</td>
-                  <td class="center">4</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td class="center"></td>
                 </tr>
                 <tr class="gradeC">
-                  <td>Trident</td>
-                  <td>Internet
-                    Explorer 5.0</td>
-                  <td>Win 95+</td>
-                  <td class="center">5</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td class="center"></td>
                 </tr>
               </tbody>
             </table>
