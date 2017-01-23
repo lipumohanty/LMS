@@ -1,4 +1,7 @@
-
+<?php
+MysqlConnection::connect();
+$resource = MysqlConnection::fetchAll("tbl_employee");
+?>
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="span12">
@@ -29,43 +32,53 @@
         </div>
     </div>
 </div>
- <div class="container-fluid">
+<div class="container-fluid">
     <hr>
     <div class="row-fluid">
-      <div class="span12">
-        <div class="widget-box">
-          <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
-            <h5>VIEW EMPLOYEE</h5>
-          </div>
-          <div class="widget-content nopadding">
-            <table class="table table-bordered data-table">
-              <thead>
-                <tr>
-                  <th>Employee id</th>
-                  <th>First Name</th>
-                  <th>Last Name</th>
-                  <th>Contact No</th>
-                    <th>Mail id</th>
-                      <th>Designation</th>
-                        <th>Joining Date </th>
-                          <th>Pay Scale</th>
-                            <th>Date Of Birth</th>
-                              <th>Address</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="gradeX">
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td class="center"></td>
-                </tr>
-                <tr class="gradeC">
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td class="center"></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+        <div class="span12">
+            <div class="widget-box">
+                <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
+                    <h5>VIEW EMPLOYEE</h5>
+                </div>
+                <div class="widget-content nopadding">
+                    <table class="table table-bordered data-table">
+                        <thead>
+                            <tr>
+                                <th>Employee id</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Contact No</th>
+                                <th>Mail id</th>
+                                <th>Designation</th>
+                                <th>Joining Date </th>
+                                <th>Pay Scale</th>
+                                <th>Date Of Birth</th>
+                                <th>Address</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <?php
+                            foreach ($resource as $result) {
+                                ?>
+                                <tr class="gradeX">
+                                   <td><?php echo $result["txtId"]?></td>
+                                   <td><?php echo $result["fname"]?></td>
+                                   <td><?php echo $result["lname"]?></td>
+                                   <td><?php echo $result["contact"]?></td>
+                                   <td><?php echo $result["email"]?></td>
+                                   <td><?php echo $result["designation"]?></td>
+                                   <td><?php echo $result["join_date"]?></td>
+                                   <td><?php echo $result["pay_scale"]?></td>
+                                   <td><?php echo $result["dob"]?></td>
+                                   <td><?php echo $result["address"]?></td>
+                                
+                                </tr>  
+                                <?php
+                            }
+                            ?>
+
+
+                        </tbody>
+                    </table>
+                </div>
