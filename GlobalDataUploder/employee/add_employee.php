@@ -4,7 +4,7 @@ if (isset($_POST["submit"])) {
    echo "<pre>";
     print_r($_POST);
     echo "</pre>";
-    MysqlConnection::insert("tbl_employee", $_POST);
+    MysqlConnection::insert(" tbl_employee", $_POST);
 }
 ?>
 
@@ -47,7 +47,7 @@ if (isset($_POST["submit"])) {
                                 <div class="span11"  style="float: left">
                                     <label class="control-label ">MAIL&nbspID&nbsp; &nbsp;:&nbsp;</label>
                                     <div class="controls">
-                                        <input type="text" name="mail_id"  value="" maxlength="10" minlength="10" onKeyPress="return isNumberKey(event)" class="span12"   placeholder="" />
+                                        <input type="text" name="email"  value="" maxlength="10" minlength="10" class="span12"   placeholder="" />
                                     </div>
                                 </div>
                                 <div class="span11"  style="float: left">
@@ -67,7 +67,7 @@ if (isset($_POST["submit"])) {
                                 <div class="span11"  style="float: left">
                                     <label class="control-label ">&nbspPAY &nbspSCALE&nbsp; &nbsp;:&nbsp;</label>
                                     <div class="controls">
-                                        <input type="text" name="payscale"  onKeyPress="return isNumberKey(event)" value="" maxlength="20" minlength="8"  class="span12"   placeholder="" />
+                                        <input type="text" name="pay_scale"  onKeyPress="return isNumberKey(event)" value="" maxlength="20" minlength="8"  class="span12"   placeholder="" />
                                     </div>
                                 </div>
                             </div>
@@ -94,13 +94,13 @@ if (isset($_POST["submit"])) {
                                 <div class="span11"  style="float: left">
                                     <label class="control-label ">&nbsp;PASSWORD:</label>
                                     <div class="controls">
-                                        <input type="text" name="commuted_leave"  onKeyPress="return isNumberKey(event)" value="" maxlength="30" class="span12"   placeholder="" />
+                                        <input type="text" name="password"   value="" maxlength="30" class="span12"   placeholder="" />
                                     </div>
                                 </div>
                                 <div class="span11"  style="float: left">
                                     <label class="control-label ">RE-TYPE PASSWORD:&nbsp;</label>
                                     <div class="controls">
-                                        <input type="text" name="halfpay_leave"  onKeyPress="return isNumberKey(event)" value="" maxlength="20" minlength="8"  class="span12"   placeholder="" />
+                                        <input type="text" name=""   value="" maxlength="20" minlength="8"  class="span12"   placeholder="" />
                                     </div>
                                 </div>
                             </div>
@@ -125,3 +125,8 @@ if (isset($_POST["submit"])) {
         </div>
     </div>
 </div>
+  
+  
+  
+  
+  
