@@ -29,55 +29,58 @@ if (isset($_POST["submit"])) {
                         <div class="control-group" style="background-color: white;">
                             <div class="span11" style="clear: both "></div>
                             <div class="span11">
-                                <div class="span11"  style="float: left">
-                                    <label class="control-label ">FIRST NAME:</label>
+                                <div class="span6"  style="float: left">
+                                    <label class="control-label ">&nbsp;FIRST NAME:</label>
                                     <div class="controls">
                                         <input type="text" name="fname" autofocus="" value="" maxlength="30" class="span12"  required="" placeholder="" />
                                     </div>
                                 </div>
-                                <div class="span11"  style="float: left">
+                                <div class="span6"  style="float: left">
                                     <label class="control-label ">LAST NAME:</label>
                                     <div class="controls">
                                         <input type="text" name="lname" autofocus="" value="" maxlength="30" class="span12"  required="" placeholder="" />
                                     </div>
                                 </div>
                             </div>
+                            
                             <div class="span11">
-                                <div class="span11"  style="float: left">
-                                    <label class="control-label ">CONTACT&nbspNO&nbsp; &nbsp;:&nbsp;</label>
+                                <div class="span6"  style="float: left">
+                                    <label class="control-label ">&nbspCONTACT&nbspNO&nbsp; &nbsp;:&nbsp;</label>
                                     <div class="controls">
                                         <input type="text" name="contact"  value="" maxlength="10" minlength="10" onKeyPress="return isNumberKey(event)" class="span12"   placeholder="" />
                                     </div>
                                 </div>
-                                <div class="span11"  style="float: left">
+                                <div class="span6"  style="float: left">
                                     <label class="control-label ">E-MAIL&nbspID&nbsp; &nbsp;:&nbsp;</label>
                                     <div class="controls">
                                         <input type="text" name="email"  value="" maxlength="30" minlength="10" class="span12"   placeholder="" />
                                     </div>
                                 </div>
-                                <div class="span11"  style="float: left">
+                                <div class="span11">
+                                <div class="span6"  style="float: left">
                                     <label class="control-label ">&nbspJOIN &nbspDATE&nbsp; &nbsp;:&nbsp;</label>
                                     <div class="controls">
                                         <input type="text" name="join_date" id="join_date"  value="" maxlength="20" minlength="8"  class="span12"   placeholder="yyyy-mm-dd" />
                                     </div>
                                 </div>
-                            </div>
-                            <div class="span11">
-                                <div class="span11"  style="float: left">
-                                    <label class="control-label ">&nbspDESIGNATION&nbsp; &nbsp;:&nbsp;</label>
+                            
+                           
+                                <div class="span6"  style="float: left">
+                                    <label class="control-label ">&nbsp;  DESIGNATION&nbsp; &nbsp;:&nbsp;</label>
                                     <div class="controls">
                                         <input type="text" name="designation"  value="" maxlength="20" minlength="8"  class="span12"   placeholder="" />
                                     </div>
                                 </div>
-                                <div class="span11"  style="float: left">
+                                 </div>
+                                <div class="span11">
+                                <div class="span6"  style="float: left">
                                     <label class="control-label ">&nbspPAY &nbspSCALE&nbsp; &nbsp;:&nbsp;</label>
                                     <div class="controls">
                                         <input type="text" name="pay_scale"  onKeyPress="return isNumberKey(event)" value="" maxlength="20" minlength="8"  class="span12"   placeholder="" />
                                     </div>
                                 </div>
-                            </div>
-                            <div class="span11">
-                                <div class="span11"  >
+                            
+                                <div class="span6"  >
                                     <label class="control-label ">D.O.B&nbsp&nbsp;:&nbsp;</label>
                                     <div class="controls">
                                         <input type="date" name="dob" id="dob" value="" maxlength="255" class="span12"  required="" placeholder="yyyy-mm-dd" />
@@ -86,23 +89,25 @@ if (isset($_POST["submit"])) {
                             </div>
 
                             <div class="span11">
-                                <div class="span12"  >
+                                <div class="span6"  >
                                     <label class="control-label ">ADDRESS&nbsp&nbsp;:&nbsp;</label>
                                     <div class="controls">
                                         <input type="text" name="address" value="" maxlength="255" class="span12"  required="" placeholder="" />
                                     </div>
                                 </div>
-                            </div>
+                          
 
 
-                            <div class="span11">
-                                <div class="span11"  style="float: left">
+                            
+                                <div class="span6"  style="float: left">
                                     <label class="control-label ">&nbsp;PASSWORD:</label>
                                     <div class="controls">
                                         <input type="text" name="password"   value="" maxlength="30" class="span12"   placeholder="" />
                                     </div>
                                 </div>
-                                <div class="span11"  style="float: left">
+                                </div>
+                                
+                                <div class="span10"  style="float: left">
                                     <label class="control-label ">RE-TYPE PASSWORD:&nbsp;</label>
                                     <div class="controls">
                                         <input type="text" name=""   value="" maxlength="20" minlength="8"  class="span12"   placeholder="" />
@@ -121,6 +126,8 @@ if (isset($_POST["submit"])) {
                                     <button type="reset" name="reset" class="btn btn-primary">RESET</button>
                                     <a href="index.php?requestPage=view_employee"><button type="button" class="btn btn-info">VIEW</button></a>
                                     <button type="submit" class="btn btn-danger">CANCEL</button>
+                                  
+                                    
                                 </div>
                             </center>
                         </div>

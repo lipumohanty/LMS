@@ -45,6 +45,10 @@ $resource = MysqlConnection::fetchAll("tbl_employee");
                     <table class="table table-bordered data-table">
                         <thead>
                             <tr>
+                                <th> Options</th>
+                                <th style="width: 1%">#</th>
+                                <th  style="width: 1%">#</th>
+                                
                                 <th>Employee id</th>
                                 <th>First Name</th>
                                 <th>Last Name</th>
@@ -55,6 +59,7 @@ $resource = MysqlConnection::fetchAll("tbl_employee");
                                 <th>Pay Scale</th>
                                 <th>Date Of Birth</th>
                                 <th>Address</th>
+                                
                             </tr>
                         </thead>
                         <tbody>
@@ -63,7 +68,10 @@ $resource = MysqlConnection::fetchAll("tbl_employee");
                             foreach ($resource as $result) {
                                 ?>
                                 <tr class="gradeX">
+                                    <td><a href="index.php?requestPage=edit_employee"><i class="icon-pencil"></i></td></a>
+                                    <td><a href="index.php?requestPage=edit_employee"><i class="icon-remove"></i></td></a>                                  
                                    <td><?php echo $result["txtId"]?></td>
+                                          
                                    <td><?php echo $result["fname"]?></td>
                                    <td><?php echo $result["lname"]?></td>
                                    <td><?php echo $result["contact"]?></td>
