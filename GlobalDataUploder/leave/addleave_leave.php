@@ -1,42 +1,22 @@
 <?php
 if (isset($_POST["submit"])) {
     unset($_POST["submit"]);
-    MysqlConnection::insert("tbl_leave_type", $_POST);
+    echo "<pre>";
+    print_r($_POST);
+    echo "</pre>";
+    MysqlConnection::insert("tbl_addleave", $_POST);
+    exit;
 }
 ?>
-
-
-
-<div class="container-fluid">
-    <div class="row-fluid">
-        <div class="span12">
-            <div class="widget-box">
-                <div class="widget-title"> <span class="icon"> <i class="icon-cloud"></i> </span>
-                    <h5>EDIT LEAVE </h5>
-                </div>
-                <div class="widget-content nopadding">
-                    <form class="form-horizontal" method="post" action="../OffsetuserServlet" name="basic_validate" id="basic_validate" novalidate="novalidate">
-                        <div class="control-group">
-                            <label class="control-label ">LEAVE ID :</label>
-                            <div class="controls">
-                                <input type="text" name=";leave_id"   autofocus="" maxlength="10" class="span11"    placeholder="LEAVE ID" />
-                            </div>
-                            <label class="control-label ">LEAVE TYPE :</label>
-                            <div class="controls">
-                                <input type="text" name="leave_type"   autofocus="" maxlength="100" class="span11"    placeholder="LEAVE TYPE" />
-                            </div>
-                            <div class="controls">
-                                <input type="hidden" name="<%= IServletConstant.ACTION%>" value="<%= IServletConstant.ACTION_SEARCH%>" />
-                                <button type="submit" class="btn btn-success">Search</button>
-                                <button type="submit" class="btn btn-danger">Clear</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
+	  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+ <script>
+	  $( function() {
+	    $( "#added_date" ).datepicker({ dateFormat: 'yy-mm-dd' });
+	  } );
+	  
+	  </script>
 
 
 <div class="container-fluid">
@@ -48,13 +28,27 @@ if (isset($_POST["submit"])) {
                     <form class="form-horizontal" method="post" action="" name="" id="" novalidate="novalidate">
                         <div class="control-group" style="background-color: white;">
                             <div class="span11" style="clear: both "></div>
-                           
-                           
+                            <div class="span11">
+                                <div class="span11"  style="float: left">
+                                    <label class="control-label ">LEAVE&nbsp;TYPE:&nbsp;</label>
+                                    <div class="controls">
+                                        <input type="text" name="leave_type" autofocus=""  value="" maxlength="30" class="span12"  required="" placeholder="" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="span11">
+                                <div class="span11"  style="float: left">
+                                    <label class="control-label ">DESCRIPTION&nbsp;:&nbsp;</label>
+                                    <div class="controls">
+                                        <input type="text" name="description"  value=""  maxlength="255" class="span12"  required="" placeholder="" />
+                                    </div>
+                                </div>
+                            </div>
                             <div class="span11">
                                 <div class="span11"  style="float: left">
                                     <label class="control-label ">NO&nbsp;OF&nbsp;COUNT:&nbsp;</label>
                                     <div class="controls">
-                                        <input type="text" name="counter" value="" maxlength="" class="span12" onKeyPress="return isNumberKey(event)"  placeholder="" />
+                                        <input type="text" name="no_count" value="" maxlength="`" class="span12" onKeyPress="return isNumberKey(event)"  placeholder="" />
                                     </div>
                                 </div>
                                 
@@ -63,7 +57,7 @@ if (isset($_POST["submit"])) {
                                 <div class="span11"  style="float: left">
                                     <label class="control-label ">&nbsp;ADDED&nbsp;DATE:&nbsp;</label>
                                     <div class="controls">
-                                        <input type="text" name="add_date" value="" maxlength="" class="span12"   placeholder="" />
+                                        <input type="text" name="added_date" id="added_date" value="" maxlength="" class="span12"   placeholder="" />
                                     </div>
                                 </div>
                                 
@@ -72,7 +66,7 @@ if (isset($_POST["submit"])) {
                                 <div class="span11"  style="float: left">
                                     <label class="control-label ">&nbsp;ADDED&nbsp;BY:&nbsp;</label>
                                     <div class="controls">
-                                        <input type="text" name="add_by" value="" maxlength="" class="span12"   placeholder="" />
+                                        <input type="text" name="added_by" value="" maxlength="30" class="span12"   placeholder="" />
                                     </div>
                                 </div>
                                 
@@ -83,8 +77,8 @@ if (isset($_POST["submit"])) {
                                     <div class="controls">
                                         <select class="span12" id="is_active" name="is_active">
                                                  
-                                                <option value="yes">Yes</option>
-                                                <option value="no">No</option>
+                                                <option value="y">Yes</option>
+                                                <option value="n">No</option>
                                            
                                         </select>
                                     </div>
@@ -95,9 +89,10 @@ if (isset($_POST["submit"])) {
                             <center>
                                 <div class="form-actions right">
                                    
-                                    <a href=""><button type="submit" name="submit" class="btn btn-success">SAVE</button>
-                                 
-                                    <a href="index.php?requestPage=view_employee"><button type="button" class="btn btn-info">VIEW</button></a>
+                                    <a href=""><button type="submit" name="submit" class="btn btn-success">ADD</button>
+                                    <button type="reset" class="btn btn-primary">RESET</button>
+                                    <a href="index.php?requestPage=viewleave_employee"><button type="button" class="btn btn-info">VIEW</button></a>
+                                     <a href="index.php?requestPage=editleave_employee"><button type="button" class="btn btn-info">EDIT</button></a>
                                 </div>
                             </center>
                         </div>

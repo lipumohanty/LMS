@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 MysqlConnection::connect();
 $resource = MysqlConnection::fetchAll("tbl_employee");
 ?>

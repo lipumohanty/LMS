@@ -1,4 +1,7 @@
-
+<?php
+MysqlConnection::connect();
+$resource = MysqlConnection::fetchAll("tbl_addleave");
+?>
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="span12">
@@ -12,7 +15,7 @@
                            
                             <label class="control-label ">LEAVE TYPE :</label>
                             <div class="controls">
-                                <input type="text" name="username"   autofocus="" maxlength="100" class="span11"    placeholder="USERNAME" />
+                                <input type="text" name="leave_type"   autofocus="" maxlength="100" class="span11"    placeholder="USERNAME" />
                             </div>
                             <div class="controls">
                                 <input type="hidden" name="<%= IServletConstant.ACTION%>" value="<%= IServletConstant.ACTION_SEARCH%>" />
@@ -47,18 +50,23 @@
                 </tr>
               </thead>
               <tbody>
-                <tr class="gradeX">
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td class="center"></td>
-                </tr>
-                <tr class="gradeC">
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td class="center"></td>
-                </tr>
+               
+                            <?php
+                            foreach ($resource as $result) {
+                                ?>
+                                <tr class="gradeX">
+                                   <td><?php echo $result["txtId"]?></td>
+                                   <td><?php echo $result["leave_type"]?></td>
+                                   <td><?php echo $result["description"]?></td>
+                                   <td><?php echo $result["no_count"]?></td>
+                                   <td><?php echo $result["added_date"]?></td>
+                                   <td><?php echo $result["added_by"]?></td>
+                                   <td><?php echo $result["is_active"]?></td>
+                                  
+                                </tr>  
+                                <?php
+                            }
+                            ?>
               </tbody>
             </table>
           </div>
