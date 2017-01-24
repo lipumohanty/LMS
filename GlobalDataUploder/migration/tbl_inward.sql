@@ -1,3 +1,8 @@
+drop database if exists db_migration;
+create database db_migration;
+use db_migration;
+
+
 -- phpMyAdmin SQL Dump
 -- version 4.0.10.7
 -- http://www.phpmyadmin.net

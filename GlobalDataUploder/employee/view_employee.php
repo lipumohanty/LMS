@@ -48,7 +48,7 @@ $resource = MysqlConnection::fetchAll("tbl_employee");
                                 <th>First Name</th>
                                 <th>Last Name</th>
                                 <th>Contact No</th>
-                                <th>Mail id</th>
+                                <th>E-Mail id</th>
                                 <th>Designation</th>
                                 <th>Joining Date </th>
                                 <th>Pay Scale</th>

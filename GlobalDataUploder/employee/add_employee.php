@@ -4,7 +4,7 @@ if (isset($_POST["submit"])) {
    echo "<pre>";
     print_r($_POST);
     echo "</pre>";
-    MysqlConnection::insert(" tbl_employee", $_POST);
+    MysqlConnection::insert("tbl_employee", $_POST);
 }
 ?>
  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
@@ -51,15 +51,15 @@ if (isset($_POST["submit"])) {
                                     </div>
                                 </div>
                                 <div class="span11"  style="float: left">
-                                    <label class="control-label ">MAIL&nbspID&nbsp; &nbsp;:&nbsp;</label>
+                                    <label class="control-label ">E-MAIL&nbspID&nbsp; &nbsp;:&nbsp;</label>
                                     <div class="controls">
-                                        <input type="text" name="email"  value="" maxlength="10" minlength="10" class="span12"   placeholder="" />
+                                        <input type="text" name="email"  value="" maxlength="30" minlength="10" class="span12"   placeholder="" />
                                     </div>
                                 </div>
                                 <div class="span11"  style="float: left">
                                     <label class="control-label ">&nbspJOIN &nbspDATE&nbsp; &nbsp;:&nbsp;</label>
                                     <div class="controls">
-                                        <input type="text" name="join_date" id="join_date"  value="" maxlength="20" minlength="8"  class="span12"   placeholder="" />
+                                        <input type="text" name="join_date" id="join_date"  value="" maxlength="20" minlength="8"  class="span12"   placeholder="yyyy-mm-dd" />
                                     </div>
                                 </div>
                             </div>
@@ -81,7 +81,7 @@ if (isset($_POST["submit"])) {
                                 <div class="span11"  >
                                     <label class="control-label ">D.O.B&nbsp&nbsp;:&nbsp;</label>
                                     <div class="controls">
-                                        <input type="date" name="dob" id="dob" value="" maxlength="255" class="span12"  required="" placeholder="" />
+                                        <input type="date" name="dob" id="dob" value="" maxlength="255" class="span12"  required="" placeholder="yyyy-mm-dd" />
                                     </div>
                                 </div>
                             </div>

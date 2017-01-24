@@ -1,7 +1,10 @@
 <?php
 if (isset($_POST["submit"])) {
     unset($_POST["submit"]);
-    MysqlConnection::insert("tbl_leave_type", $_POST);
+    echo "<pre>";
+    print_r($_POST);
+    echo "</pre>";
+    MysqlConnection::insert("tbl_addleave", $_POST);
 }
 ?>
 
@@ -19,7 +22,7 @@ if (isset($_POST["submit"])) {
                                 <div class="span11"  style="float: left">
                                     <label class="control-label ">LEAVE&nbsp;TYPE:&nbsp;</label>
                                     <div class="controls">
-                                        <input type="text" name="name" autofocus=""  value="" maxlength="30" class="span12"  required="" placeholder="" />
+                                        <input type="text" name="leave_type" autofocus=""  value="" maxlength="30" class="span12"  required="" placeholder="" />
                                     </div>
                                 </div>
                             </div>
@@ -35,7 +38,7 @@ if (isset($_POST["submit"])) {
                                 <div class="span11"  style="float: left">
                                     <label class="control-label ">NO&nbsp;OF&nbsp;COUNT:&nbsp;</label>
                                     <div class="controls">
-                                        <input type="text" name="counter" value="" maxlength="`" class="span12" onKeyPress="return isNumberKey(event)"  placeholder="" />
+                                        <input type="text" name="no_count" value="" maxlength="`" class="span12" onKeyPress="return isNumberKey(event)"  placeholder="" />
                                     </div>
                                 </div>
                                 
@@ -44,7 +47,7 @@ if (isset($_POST["submit"])) {
                                 <div class="span11"  style="float: left">
                                     <label class="control-label ">&nbsp;ADDED&nbsp;DATE:&nbsp;</label>
                                     <div class="controls">
-                                        <input type="text" name="add_date" value="" maxlength="" class="span12"   placeholder="" />
+                                        <input type="text" name="added_date" value="" maxlength="" class="span12"   placeholder="" />
                                     </div>
                                 </div>
                                 
@@ -53,7 +56,7 @@ if (isset($_POST["submit"])) {
                                 <div class="span11"  style="float: left">
                                     <label class="control-label ">&nbsp;ADDED&nbsp;BY:&nbsp;</label>
                                     <div class="controls">
-                                        <input type="text" name="add_by" value="" maxlength="30" class="span12"   placeholder="" />
+                                        <input type="text" name="added_by" value="" maxlength="30" class="span12"   placeholder="" />
                                     </div>
                                 </div>
                                 
@@ -64,8 +67,8 @@ if (isset($_POST["submit"])) {
                                     <div class="controls">
                                         <select class="span12" id="is_active" name="is_active">
                                                  
-                                                <option value="yes">Yes</option>
-                                                <option value="no">No</option>
+                                                <option value="y">Yes</option>
+                                                <option value="n">No</option>
                                            
                                         </select>
                                     </div>
