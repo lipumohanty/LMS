@@ -1,10 +1,12 @@
 <?php
+$txtId = $_GET["txtId"];
 if (isset($_POST["submit"])) {
     unset($_POST["submit"]);
-
-    MysqlConnection::insert("tbl_employee", $_POST);
+    MysqlConnection::edit("tbl_employee", $_POST,$txtId);
     header("location:index.php?requestPage=view_employee");
 }
+$employee = MysqlConnection::fetchByPrimary("tbl_employee", $txtId);
+
 ?>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -32,13 +34,13 @@ if (isset($_POST["submit"])) {
                                 <div class="span6"  style="float: left">
                                     <label class="control-label ">FIRST NAME:</label>
                                     <div class="controls">
-                                        <input type="text" name="fname" autofocus="" value="" maxlength="30" class="span12"  required="" placeholder="" />
+                                        <input type="text" name="fname" autofocus="" value="<?php echo $employee["fname"]?>" maxlength="30" class="span12"  required="" placeholder="" />
                                     </div>
                                 </div>
                                 <div class="span6"  style="float: left">
                                     <label class="control-label ">LAST NAME:</label>
                                     <div class="controls">
-                                        <input type="text" name="lname" autofocus="" value="" maxlength="30" class="span12"  required="" placeholder="" />
+                                        <input type="text" name="lname" autofocus="" value="<?php echo $employee["lname"]?>" maxlength="30" class="span12"  required="" placeholder="" />
                                     </div>
                                 </div>
                             </div>
@@ -47,26 +49,26 @@ if (isset($_POST["submit"])) {
                                 <div class="span6"  style="float: left">
                                     <label class="control-label ">CONTACT NO :</label>
                                     <div class="controls">
-                                        <input type="text" name="contact"  value="" maxlength="10" minlength="10" onKeyPress="return isNumberKey(event)" class="span12"   placeholder="" />
+                                        <input type="text" name="contact"  value="<?php echo $employee["contact"]?>" maxlength="10" minlength="10" onKeyPress="return isNumberKey(event)" class="span12"   placeholder="" />
                                     </div>
                                 </div>
                                 <div class="span6"  style="float: left">
                                     <label class="control-label ">E-MAIL ID:</label>
                                     <div class="controls">
-                                        <input type="text" name="email"  value="" maxlength="30" minlength="10" class="span12"   placeholder="" />
+                                        <input type="text" name="email"  value="<?php echo $employee["email"]?>" maxlength="30" minlength="10" class="span12"   placeholder="" />
                                     </div>
                                 </div>
                                 <div class="span12">
                                     <div class="span6"  style="float: left">
                                         <label class="control-label ">JOIN DATE :</label>
                                         <div class="controls">
-                                            <input type="text" name="join_date" id="join_date"  value="" maxlength="20" minlength="8"  class="span12"   placeholder="yyyy-mm-dd" />
+                                            <input type="text" name="join_date" id="join_date"  value="<?php echo $employee["join_date"]?>" maxlength="20" minlength="8"  class="span12"   placeholder="yyyy-mm-dd" />
                                         </div>
                                     </div>
                                     <div class="span6"  style="float: left">
                                         <label class="control-label ">DESIGNATION :</label>
                                         <div class="controls">
-                                            <input type="text" name="designation"  value="" maxlength="20" minlength="8"  class="span12"   placeholder="" />
+                                            <input type="text" name="designation"  value="<?php echo $employee["designation"]?>" maxlength="20" minlength="8"  class="span12"   placeholder="" />
                                         </div>
                                     </div>
                                 </div>
@@ -74,14 +76,14 @@ if (isset($_POST["submit"])) {
                                     <div class="span6"  style="float: left">
                                         <label class="control-label ">PAY SCALE:</label>
                                         <div class="controls">
-                                            <input type="text" name="pay_scale"  onKeyPress="return isNumberKey(event)" value="" maxlength="20" minlength="8"  class="span12"   placeholder="" />
+                                            <input type="text" name="pay_scale"  onKeyPress="return isNumberKey(event)" value="<?php echo $employee["pay_scale"]?>" maxlength="20" minlength="8"  class="span12"   placeholder="" />
                                         </div>
                                     </div>
 
                                     <div class="span6"  >
                                         <label class="control-label ">D.O.B:</label>
                                         <div class="controls">
-                                            <input type="date" name="dob" id="dob" value="" maxlength="255" class="span12"  required="" placeholder="yyyy-mm-dd" />
+                                            <input type="date" name="dob" id="dob" value="<?php echo $employee["dob"]?>" maxlength="255" class="span12"  required="" placeholder="yyyy-mm-dd" />
                                         </div>
                                     </div>
                                 </div>
@@ -93,19 +95,9 @@ if (isset($_POST["submit"])) {
                                             <input type="text" name="address" value="" maxlength="255" class="span12"  required="" placeholder="" />
                                         </div>
                                     </div>
-                                    <div class="span6"  style="float: left">
-                                        <label class="control-label ">PASSWORD:</label>
-                                        <div class="controls">
-                                            <input type="text" name="password"   value="" maxlength="30" class="span12"   placeholder="" />
-                                        </div>
-                                    </div>
+                                    
                                 </div>
-                                <div class="span10"  style="float: left">
-                                    <label class="control-label ">RE-TYPE PASSWORD:</label>
-                                    <div class="controls">
-                                        <input type="text" name=""   value="" maxlength="20" minlength="8"  class="span12"   placeholder="" />
-                                    </div>
-                                </div>
+                                
                             </div>
 
 

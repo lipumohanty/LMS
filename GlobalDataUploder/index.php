@@ -3,9 +3,6 @@ error_log(0);
 session_start();
 include './service/MySql.php';
 include './service/UtilService.php';
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">

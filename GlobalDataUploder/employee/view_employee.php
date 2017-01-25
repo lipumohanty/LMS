@@ -45,10 +45,10 @@ $resource = MysqlConnection::fetchAll("tbl_employee");
                     <table class="table table-bordered data-table">
                         <thead>
                             <tr>
-                               
+
                                 <th style="width: 1%">Edit</th>
                                 <th  style="width: 1%">Delete</th>
-                                
+
                                 <th>Employee id</th>
                                 <th>First Name</th>
                                 <th>Last Name</th>
@@ -59,7 +59,7 @@ $resource = MysqlConnection::fetchAll("tbl_employee");
                                 <th>Pay Scale</th>
                                 <th>Date Of Birth</th>
                                 <th>Address</th>
-                                
+
                             </tr>
                         </thead>
                         <tbody>
@@ -68,20 +68,27 @@ $resource = MysqlConnection::fetchAll("tbl_employee");
                             foreach ($resource as $result) {
                                 ?>
                                 <tr class="gradeX">
-                                    <td><a href="index.php?requestPage=edit_employee"><i class="icon-pencil"></i></td></a>
-                                    <td><a href="index.php?requestPage=edit_employee"><i class="icon-remove"></i></td></a>                                  
-                                   <td><?php echo $result["txtId"]?></td>
-                                          
-                                   <td><?php echo $result["fname"]?></td>
-                                   <td><?php echo $result["lname"]?></td>
-                                   <td><?php echo $result["contact"]?></td>
-                                   <td><?php echo $result["email"]?></td>
-                                   <td><?php echo $result["designation"]?></td>
-                                   <td><?php echo $result["join_date"]?></td>
-                                   <td><?php echo $result["pay_scale"]?></td>
-                                   <td><?php echo $result["dob"]?></td>
-                                   <td><?php echo $result["address"]?></td>
-                                
+                                    <td>
+                                        <a href="index.php?requestPage=edit_employee&txtId=<?php echo $result["txtId"] ?>">
+                                            <i class="icon-pencil"></i>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="index.php?requestPage=request_delete&tblname=tbl_employee&txtId=<?php echo $result["txtId"] ?>&location=index.php?requestPage=view_employee">
+                                            <i class="icon-remove"></i>
+                                        </a>                                  
+                                    </td>
+                                    <td><?php echo $result["txtId"] ?></td>
+                                    <td><?php echo $result["fname"] ?></td>
+                                    <td><?php echo $result["lname"] ?></td>
+                                    <td><?php echo $result["contact"] ?></td>
+                                    <td><?php echo $result["email"] ?></td>
+                                    <td><?php echo $result["designation"] ?></td>
+                                    <td><?php echo $result["join_date"] ?></td>
+                                    <td><?php echo $result["pay_scale"] ?></td>
+                                    <td><?php echo $result["dob"] ?></td>
+                                    <td><?php echo $result["address"] ?></td>
+
                                 </tr>  
                                 <?php
                             }

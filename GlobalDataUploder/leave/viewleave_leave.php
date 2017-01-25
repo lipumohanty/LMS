@@ -41,11 +41,15 @@ $resource = MysqlConnection::fetchAll("tbl_addleave");
             <table class="table table-bordered data-table">
               <thead>
                 <tr>
+                     <th style="width: 1%">Edit</th>
+                     <th  style="width: 1%">Delete</th>
+                     <th>Leave id</th>
                   <th>Leave type</th>
                   <th>Description</th>
                   <th>No Of Count</th>
                   <th>Added Date</th>
                     <th>Added By</th>
+                    <th>Is Active</th>
                     
                 </tr>
               </thead>
@@ -55,6 +59,8 @@ $resource = MysqlConnection::fetchAll("tbl_addleave");
                             foreach ($resource as $result) {
                                 ?>
                                 <tr class="gradeX">
+                                   <td><a href="index.php?requestPage=editleave_leave"><i class="icon-pencil"></i></td></a>
+                                    <td><a href="index.php?requestPage=deleteleave_leave"><i class="icon-remove"></i></td></a>
                                    <td><?php echo $result["txtId"]?></td>
                                    <td><?php echo $result["leave_type"]?></td>
                                    <td><?php echo $result["description"]?></td>
