@@ -1,5 +1,4 @@
 <?php
-
 class UtilService {
 
     public static function getDatabaseConnection() {
@@ -32,3 +31,4 @@ class UtilService {
     }
 
 }
+?>

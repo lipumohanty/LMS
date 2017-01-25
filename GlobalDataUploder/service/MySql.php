@@ -1,5 +1,4 @@
 <?php
-
 class MysqlConnection {
 
     /**
@@ -56,15 +55,13 @@ class MysqlConnection {
      * @return string boolean values
      */
     static function edit($tbl = "", $data = array(), $pkcolumn) {
-        $pkvalue = $data[$pkcolumn];
-        unset($data[$pkcolumn]);
         try {
             $str = "";
             $update = "";
             foreach ($data as $key => $values) {
                 $update.= "`" . $key . "` = " . "'" . trim($values) . "',";
             }
-            $query = " UPDATE $tbl SET " . substr($update, 0, strlen($update) - 1) . " WHERE $pkcolumn = $pkvalue; ";
+            $query = " UPDATE $tbl SET " . substr($update, 0, strlen($update) - 1) . " WHERE txtId = $pkcolumn; ";
             return MysqlConnection::executeQuery($query);
         } catch (Exception $exc) {
             echo "<span style='color:red'>SQL QUERY ERROR !!! EDIT !!!<span>";
@@ -76,13 +73,13 @@ class MysqlConnection {
      * @param String $tbl table name
      * @param int  $id primary key of the table
      */
-    static function delete($tbl = "", $id = '', $pkcolumn) {
+    static function delete($tbl, $txtId) {
         try {
-//            $query = "DELETE FROM $tbl WHERE $pkcolumn=  " . base64_decode($id);
-            $query = "UPDATE $tbl SET txtIsDelete = '1'  WHERE $pkcolumn=  " . base64_decode($id);
+            $query = "DELETE FROM $tbl WHERE txtId= $txtId " ;
+//            $query = "UPDATE $tbl SET  WHERE $pkcolumn=  " . base64_decode($id);
             MysqlConnection::executeQuery($query);
         } catch (Exception $exc) {
-            echo "<span style='color:red'>SQL QUERY ERROR !!! DELETE !!!<span>";
+            //echo "<span style='color:red'>SQL QUERY ERROR !!! DELETE !!!<span>";
         }
     }
 
@@ -115,8 +112,8 @@ class MysqlConnection {
      * @param String $pkvalue
      * @return type
      */
-    static function fetchByPrimary($tbl, $pkvalue, $pkcolumn) {
-        $query = "SELECT * FROM $tbl WHERE $pkcolumn = $pkvalue  ";
+    static function fetchByPrimary($tbl, $pkvalue) {
+        $query = "SELECT * FROM $tbl WHERE txtId = $pkvalue  ";
         $resource = MysqlConnection::executeQuery($query);
         $result = MysqlConnection::toArrays($resource);
         return $result[0];
@@ -176,3 +173,4 @@ class MysqlConnection {
         return $contains;
     }
 }
+?>
