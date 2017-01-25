@@ -45,9 +45,9 @@ $resource = MysqlConnection::fetchAll("tbl_employee");
                     <table class="table table-bordered data-table">
                         <thead>
                             <tr>
-                                <th> Options</th>
-                                <th style="width: 1%">#</th>
-                                <th  style="width: 1%">#</th>
+                               
+                                <th style="width: 1%">Edit</th>
+                                <th  style="width: 1%">Delete</th>
                                 
                                 <th>Employee id</th>
                                 <th>First Name</th>
