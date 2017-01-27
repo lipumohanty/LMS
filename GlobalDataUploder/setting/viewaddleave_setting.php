@@ -46,7 +46,7 @@ $resource = MysqlConnection::fetchAll("tbl_leavesetting");
                     <table class="table table-bordered data-table">
                         <thead>
                             <tr>
-                               
+
                                 <th style="width: 1%">Edit</th>
                                 <th  style="width: 1%">Delete</th>
                                 <th>Leave Setting id</th>
@@ -55,7 +55,7 @@ $resource = MysqlConnection::fetchAll("tbl_leavesetting");
                                 <th>Halfpay Leave</th>
                                 <th>Special Leave</th>
                                 <th>Leaving of Headquarter</th>
-                               
+
                             </tr>
                         </thead>
                         <tbody>
@@ -64,7 +64,7 @@ $resource = MysqlConnection::fetchAll("tbl_leavesetting");
                             foreach ($resource as $result) {
                                 ?>
                                 <tr class="gradeX">
-                                   <td>
+                                    <td>
                                         <a href="index.php?requestPage=editleave_setting&txtId=<?php echo $result["txtId"] ?>">
                                             <i class="icon-pencil"></i>
                                         </a>
@@ -74,14 +74,18 @@ $resource = MysqlConnection::fetchAll("tbl_leavesetting");
                                             <i class="icon-remove"></i>
                                         </a>                                  
                                     </td>                                  
-                                   <td><?php echo $result["txtId"]?></td>
-                                          
-                                   <td><?php echo $result["emp_id"]?></td>
-                                   <td><?php echo $result["commuted_leave"]?></td>
-                                   <td><?php echo $result["halfpay_leave"]?></td>
-                                   <td><?php echo $result["special_leave"]?></td>
-                                   <td><?php echo $result["leaving_hq"]?></td>
-                                   
+                                    <td><?php echo $result["txtId"] ?></td>
+                                    <td>
+                                        <?php 
+                                        $resultemp =  getEmployeeById($result["emp_id"]);
+                                                echo $resultemp["fname"]." ".$resultemp["lname"];
+                                                ?>
+                                    </td>
+                                    <td><?php echo $result["commuted_leave"] ?></td>
+                                    <td><?php echo $result["halfpay_leave"] ?></td>
+                                    <td><?php echo $result["special_leave"] ?></td>
+                                    <td><?php echo $result["leaving_hq"] ?></td>
+
                                 </tr>  
                                 <?php
                             }
@@ -91,3 +95,17 @@ $resource = MysqlConnection::fetchAll("tbl_leavesetting");
                         </tbody>
                     </table>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <?php 
+    function getEmployeeById($empId){
+        
+      $result =   MysqlConnection::fetchByPrimary("tbl_employee", $empId);
+      return($result); 
+        
+    }
+
+?>

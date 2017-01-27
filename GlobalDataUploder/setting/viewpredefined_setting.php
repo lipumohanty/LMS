@@ -46,14 +46,14 @@ $resource = MysqlConnection::fetchAll("tbl_predefinedleave");
                     <table class="table table-bordered data-table">
                         <thead>
                             <tr>
-                               
+
                                 <th style="width: 1%">Edit</th>
                                 <th  style="width: 1%">Delete</th>
                                 <th>Predefined Leave id</th>
                                 <th>Date</th>
                                 <th>Name</th>
                                 <th>Description</th>
-                               
+
                             </tr>
                         </thead>
                         <tbody>
@@ -62,7 +62,7 @@ $resource = MysqlConnection::fetchAll("tbl_predefinedleave");
                             foreach ($resource as $result) {
                                 ?>
                                 <tr class="gradeX">
-                                     <td>
+                                    <td>
                                         <a href="index.php?requestPage=editpredefined_setting&txtId=<?php echo $result["txtId"] ?>">
                                             <i class="icon-pencil"></i>
                                         </a>
@@ -72,12 +72,12 @@ $resource = MysqlConnection::fetchAll("tbl_predefinedleave");
                                             <i class="icon-remove"></i>
                                         </a>                                  
                                     </td>                                  
-                                   <td><?php echo $result["txtId"]?></td>
-                                          
-                                   <td><?php echo $result["date_leave"]?></td>
-                                   <td><?php echo $result["name"]?></td>
-                                   <td><?php echo $result["description"]?></td>
-                                   
+                                    <td><?php echo $result["txtId"] ?></td>
+
+                                    <td><?php echo $result["date_leave"] ?></td>
+                                    <td><?php echo $result["name"] ?></td>
+                                    <td><?php echo $result["description"] ?></td>
+
                                 </tr>  
                                 <?php
                             }

@@ -1,7 +1,7 @@
 <?php
 if (isset($_POST["submit"])) {
     unset($_POST["submit"]);
-   
+
     MysqlConnection::insert("tbl_leavesetting", $_POST);
     exit;
 }
@@ -17,18 +17,18 @@ if (isset($_POST["submit"])) {
                 <div class="widget-title"> <span class="icon"> <i class="icon-th"></i> </span>
                     <h5>LEAVE SETTINGS: </h5>
                 </div>
-               <div class="widget-content nopadding">
+                <div class="widget-content nopadding">
                     <form class="form-horizontal" method="post" action="" name="" id="" novalidate="novalidate">
                         <div class="control-group" style="background-color: white;">
                             <div class="span11" style="clear: both "></div>
-                             <div class="span11">
+                            <div class="span11">
                                 <div class="span11"  style="float: left">
                                     <label class="control-label ">EMPLOYEE ID:</label>
                                     <div class="controls">
                                         <input type="text" name="emp_id" value="" maxlength="" class="span12"   placeholder="" />
                                     </div>
                                 </div>
-                                
+
                             </div>
                             <div class="span11">
                                 <div class="span11"  style="float: left">
@@ -38,7 +38,7 @@ if (isset($_POST["submit"])) {
                                     </div>
                                 </div>
                             </div>
-                             <div class="span11">
+                            <div class="span11">
                                 <div class="span11"  style="float: left">
                                     <label class="control-label ">HALF PAY LEAVE :</label>
                                     <div class="controls">
@@ -54,25 +54,25 @@ if (isset($_POST["submit"])) {
                                     </div>
                                 </div>
                             </div>
-                                
-                             <div class="span11">
-                                 <div class="span11"  style="float: left">
+
+                            <div class="span11">
+                                <div class="span11"  style="float: left">
                                     <label class="control-label ">LEAVING OF HEADQUARTER :</label>
                                     <div class="controls">
                                         <input type="text" name="leaving_hq" value="" maxlength="" class="span12"   placeholder="" />
                                     </div>
                                 </div>
-                               
+
                             </div>
-                             
+
                         </div>
                         <div class="control-group">
                             <center>
                                 <div class="form-actions right">
-                                   
+
                                     <a href=""><button type="submit" name="submit" class="btn btn-success">OK</button>
-                                    <button type="reset" class="btn btn-primary">RESET</button>
-                                     <a href="index.php?requestPage=viewaddleave_setting"><button type="button" class="btn btn-info">VIEW</button></a>
+                                        <button type="reset" class="btn btn-primary">RESET</button>
+                                        <a href="index.php?requestPage=viewaddleave_setting"><button type="button" class="btn btn-info">VIEW</button></a>
                                 </div>
                             </center>
                         </div>
@@ -80,7 +80,7 @@ if (isset($_POST["submit"])) {
                 </div>
             </div>
         </div>
-            </div>
-        </div>
     </div>
+</div>
+</div>
 </div>
