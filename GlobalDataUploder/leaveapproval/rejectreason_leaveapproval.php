@@ -1,11 +1,9 @@
 <?php
-
-/* 
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 ?>
 <div class="container-fluid">
     <div class="row-fluid">
@@ -23,22 +21,22 @@
                                         <input type="text" name="" autofocus="" value="" maxlength="200" class="span12"  required="" placeholder="" />
                                     </div>
                                 </div>
-                                
+
                             </div>
                         </div>
-       <div class="control-group">
+                        <div class="control-group">
                             <center>
                                 <div class="form-actions right">
 
                                     <button type="submit" name="submit" class="btn btn-success">SUBMIT</button>
-                                    
+
 
                                 </div>
                             </center>
                         </div>
                     </form>
                 </div>
-                  </div>
-              </div>
-          </div>
-      </div>
+            </div>
+        </div>
+    </div>
+</div>
