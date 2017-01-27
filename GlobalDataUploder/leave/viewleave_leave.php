@@ -65,7 +65,7 @@ $resource = MysqlConnection::fetchAll("tbl_addleave");
                                         </a>
                                     </td>
                                     <td>
-                                        <a href="index.php?requestPage=request_delete&tblname=tbl_addleave&txtId=<?php echo $result["txtId"] ?>&location=index.php?requestPage=viewleave_leave">
+                                        <a href="index.php?requestPage=request_delete&tblname=tbl_addleave&pkvalue=<?php echo $result["txtId"] ?>&location=index.php?requestPage=viewleave_leave">
                                             <i class="icon-remove"></i>
                                         </a>                                  
                                     </td>
