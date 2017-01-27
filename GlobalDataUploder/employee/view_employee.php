@@ -74,7 +74,7 @@ $resource = MysqlConnection::fetchAll("tbl_employee");
                                         </a>
                                     </td>
                                     <td>
-                                        <a href="index.php?requestPage=request_delete&tblname=tbl_employee&txtId=<?php echo $result["txtId"] ?>&location=index.php?requestPage=view_employee">
+                                        <a href="index.php?requestPage=request_delete&tblname=tbl_employee&pkvalue=<?php echo $result["txtId"] ?>&location=index.php?requestPage=view_employee">
                                             <i class="icon-remove"></i>
                                         </a>                                  
                                     </td>
