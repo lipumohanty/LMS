@@ -92,7 +92,7 @@ $employee = MysqlConnection::fetchByPrimary("tbl_employee", $txtId);
                                     <div class="span6"  >
                                         <label class="control-label ">ADDRESS:</label>
                                         <div class="controls">
-                                            <input type="text" name="address" value="" maxlength="255" class="span12"  required="" placeholder="" />
+                                            <input type="text" name="address" value="<?php echo $employee["address"]?>" maxlength="255" class="span12"  required="" placeholder="" />
                                         </div>
                                     </div>
                                     
@@ -109,7 +109,7 @@ $employee = MysqlConnection::fetchByPrimary("tbl_employee", $txtId);
 
                                     <button type="submit" name="submit" class="btn btn-success">SUBMIT</button>
                                     <button type="reset" name="reset" class="btn btn-primary">RESET</button>
-                                    <a href="index.php?requestPage=view_employee"><button type="button" class="btn btn-info">VIEW</button></a>
+                                    <a href="index.php?requestPage=viewleave_leave"><button type="button" class="btn btn-info">VIEW</button></a>
                                     <button type="submit" class="btn btn-danger">CANCEL</button>
 
 
