@@ -67,7 +67,7 @@ $resource = MysqlConnection::fetchAll("tbl_predefinedleave");
                                         </a>
                                     </td>
                                     <td>
-                                        <a href="index.php?requestPage=request_delete&tblname=tbl_addleave&txtId=<?php echo $result["txtId"] ?>&location=index.php?requestPage=viewleave_leave">
+                                        <a href="index.php?requestPage=request_delete&tblname=tbl_predefinedleave&pkvalue=<?php echo $result["txtId"] ?>&location=index.php?requestPage=viewpredefined_setting">
                                             <i class="icon-remove"></i>
                                         </a>                                  
                                     </td>                                  
