@@ -21,6 +21,7 @@ $resource = MysqlConnection::fetchAll("tbl_addleave");
                                 <input type="hidden" name="<%= IServletConstant.ACTION%>" value="<%= IServletConstant.ACTION_SEARCH%>" />
                                 <button type="submit" class="btn btn-success">Search</button>
                                 <button type="submit" class="btn btn-danger">Clear</button>
+                                  <a href="index.php?requestPage=addleave_leave"><button type="button" class="btn btn-danger">Add</button></a>
                             </div>
                         </div>
                     </form>
