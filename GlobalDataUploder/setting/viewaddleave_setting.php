@@ -63,8 +63,16 @@ $resource = MysqlConnection::fetchAll("tbl_leavesetting");
                             foreach ($resource as $result) {
                                 ?>
                                 <tr class="gradeX">
-                                    <td><a href="index.php?requestPage=editaddleave_setting"><i class="icon-pencil"></i></td></a>
-                                    <td><a href="index.php?requestPage=deleteaddleave_setting"><i class="icon-remove"></i></td></a>                                  
+                                   <td>
+                                        <a href="index.php?requestPage=editleave_setting&txtId=<?php echo $result["txtId"] ?>">
+                                            <i class="icon-pencil"></i>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="index.php?requestPage=request_delete&tblname=tbl_addleave&txtId=<?php echo $result["txtId"] ?>&location=index.php?requestPage=viewleave_leave">
+                                            <i class="icon-remove"></i>
+                                        </a>                                  
+                                    </td>                                  
                                    <td><?php echo $result["txtId"]?></td>
                                           
                                    <td><?php echo $result["emp_id"]?></td>

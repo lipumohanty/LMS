@@ -38,6 +38,15 @@ if (isset($_POST["submit"])) {
                                 </div>
                                 
                             </div>
+                            
+                              <div class="span11">
+                                <div class="span11"  style="float: left">
+                                    <label class="control-label ">NAME&nbsp;:&nbsp;</label>
+                                    <div class="controls">
+                                        <input type="text" name="name"  value=""  maxlength="255" class="span12"  required="" placeholder="" />
+                                    </div>
+                                </div>
+                            </div>
                             <div class="span11">
                                 <div class="span11"  style="float: left">
                                     <label class="control-label ">DESCRIPTION&nbsp;:&nbsp;</label>

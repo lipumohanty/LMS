@@ -50,6 +50,7 @@ $resource = MysqlConnection::fetchAll("tbl_predefinedleave");
                                 <th  style="width: 1%">Delete</th>
                                 <th>Predefined Leave id</th>
                                 <th>Date</th>
+                                <th>Name</th>
                                 <th>Description</th>
                                
                             </tr>
@@ -60,11 +61,20 @@ $resource = MysqlConnection::fetchAll("tbl_predefinedleave");
                             foreach ($resource as $result) {
                                 ?>
                                 <tr class="gradeX">
-                                    <td><a href="index.php?requestPage=editpredefined_setting"><i class="icon-pencil"></i></td></a>
-                                    <td><a href="index.php?requestPage=deletepredefined_setting"><i class="icon-remove"></i></td></a>                                  
+                                     <td>
+                                        <a href="index.php?requestPage=editpredefined_setting&txtId=<?php echo $result["txtId"] ?>">
+                                            <i class="icon-pencil"></i>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="index.php?requestPage=request_delete&tblname=tbl_addleave&txtId=<?php echo $result["txtId"] ?>&location=index.php?requestPage=viewleave_leave">
+                                            <i class="icon-remove"></i>
+                                        </a>                                  
+                                    </td>                                  
                                    <td><?php echo $result["txtId"]?></td>
                                           
                                    <td><?php echo $result["date_leave"]?></td>
+                                   <td><?php echo $result["name"]?></td>
                                    <td><?php echo $result["description"]?></td>
                                    
                                 </tr>  
