@@ -115,7 +115,7 @@ class MysqlConnection {
      * @return type
      */
     static function fetchByPrimary($tbl, $pkvalue) {
-        $query = "SELECT * FROM $tbl WHERE txtId = $pkvalue  ";
+         $query = "SELECT * FROM $tbl WHERE txtId = $pkvalue  ";
         $resource = MysqlConnection::executeQuery($query);
         $result = MysqlConnection::toArrays($resource);
         return $result[0];
