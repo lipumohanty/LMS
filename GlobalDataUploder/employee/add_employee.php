@@ -32,7 +32,7 @@ if (isset($_POST["submit"])) {
                                 <div class="span6"  style="float: left">
                                     <label class="control-label ">FIRST NAME:</label>
                                     <div class="controls">
-                                        <input type="text" name="fname" autofocus="" value="" maxlength="30" class="span12"  required="" placeholder="" />
+                                        <input type="text" name="fname" autofocus="" value="" maxlength="30" minlength="1" class="span12"  required="" placeholder="" />
                                     </div>
                                 </div>
                                 <div class="span6"  style="float: left">
@@ -56,6 +56,8 @@ if (isset($_POST["submit"])) {
                                         <input type="email" name="email"  value="" maxlength="30" minlength="10" class="span12" required=""   placeholder="" />
                                     </div>
                                 </div>
+                            </div>  
+                            <div class="span10">
                                 <div class="span12">
                                     <div class="span6"  style="float: left">
                                         <label class="control-label ">JOIN DATE :</label>
@@ -86,7 +88,7 @@ if (isset($_POST["submit"])) {
                                         </div>
                                     </div>
                                 </div>
-                                <div class="span12">
+                                <div class="span10">
                                     <div class="span6"  style="float: left">
                                         <label class="control-label ">PAY SCALE:</label>
                                         <div class="controls">
@@ -101,7 +103,8 @@ if (isset($_POST["submit"])) {
                                         </div>
                                     </div>
                                 </div>
-
+                            </div>
+                            <div class="span10">
                                 <div class="span12">
                                     <div class="span6"  >
                                         <label class="control-label ">ADDRESS:</label>
@@ -116,6 +119,8 @@ if (isset($_POST["submit"])) {
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="span10">
                                 <div class="span10"  style="float: left">
                                     <label class="control-label ">RE-TYPE PASSWORD:</label>
                                     <div class="controls">
