@@ -25,7 +25,7 @@ $resource = MysqlConnection::fetchAll("tbl_predefinedleave");
                                 <input type="hidden" name="<%= IServletConstant.ACTION%>" value="<%= IServletConstant.ACTION_SEARCH%>" />
                                 <button type="submit" class="btn btn-success">Search</button>
                                 <button type="submit" class="btn btn-danger">Clear</button>
-                                  <a href="index.php?requestPage=predefined_setting"><button type="button" class="btn btn-danger">Add</button></a>
+                                  <a href="index.php?requestPage=predefined_setting"><button type="button" class="btn btn-info">Add</button></a>
                             </div>
                         </div>
                     </form>
