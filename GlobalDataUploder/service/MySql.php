@@ -76,10 +76,7 @@ class MysqlConnection {
     static function delete($tbl, $txtId) {
         try {
             $query = "DELETE FROM $tbl WHERE txtId= $txtId " ;
-//            $query = "UPDATE $tbl SET  WHERE $pkcolumn=  " . base64_decode($id);
-            
             MysqlConnection::executeQuery($query);
-          
         } catch (Exception $exc) {
             //echo "<span style='color:red'>SQL QUERY ERROR !!! DELETE !!!<span>";
         }
