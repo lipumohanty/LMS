@@ -1,4 +1,4 @@
-<?php 
+we<?php 
 error_log(0);
 session_start();
 include './service/MySql.php';
