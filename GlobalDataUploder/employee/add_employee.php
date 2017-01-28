@@ -47,26 +47,42 @@ if (isset($_POST["submit"])) {
                                 <div class="span6"  style="float: left">
                                     <label class="control-label ">CONTACT NO :</label>
                                     <div class="controls">
-                                        <input type="text" name="contact"  value="" maxlength="10" minlength="10" onKeyPress="return isNumberKey(event)" class="span12"   placeholder="" />
+                                        <input type="text" name="contact"  value="" maxlength="10" minlength="10" required="" onKeyPress="return isNumberKey(event)" class="span12"   placeholder="" />
                                     </div>
                                 </div>
                                 <div class="span6"  style="float: left">
                                     <label class="control-label ">E-MAIL ID:</label>
                                     <div class="controls">
-                                        <input type="text" name="email"  value="" maxlength="30" minlength="10" class="span12"   placeholder="" />
+                                        <input type="email" name="email"  value="" maxlength="30" minlength="10" class="span12" required=""   placeholder="" />
                                     </div>
                                 </div>
                                 <div class="span12">
                                     <div class="span6"  style="float: left">
                                         <label class="control-label ">JOIN DATE :</label>
                                         <div class="controls">
-                                            <input type="text" name="join_date" id="join_date"  value="" maxlength="20" minlength="8"  class="span12"   placeholder="yyyy-mm-dd" />
+                                            <input type="text" name="join_date" id="join_date"  value="" maxlength="20" minlength="8"  class="span12" required=""  placeholder="yyyy-mm-dd" />
                                         </div>
                                     </div>
                                     <div class="span6"  style="float: left">
                                         <label class="control-label ">DESIGNATION :</label>
                                         <div class="controls">
-                                            <input type="text" name="designation"  value="" maxlength="20" minlength="8"  class="span12"   placeholder="" />
+                                            <select class="span12" id="designation" name="designation" required="">
+                                                <option value="">Select</option>
+                                                <option value="Chief General Manager(Technical)">Chief General Manager(Technical)</option>
+                                                <option value="General Manager(Technical)">General Manager(Technical)</option>
+                                                <option value="Dy.General Manager(Technical)">Dy.General Manager(Technical) </option>
+                                                <option value="Manager(Technical)">Manager(Technical)</option>
+                                                <option value="Dy.Manager(Technical)">Dy.Manager(Technical)</option>
+                                                <option value="Dy.General Manager(Finance & Accounts)">Dy.General Manager(Finance & Accounts)</option>
+                                                <option value="Manager(Finance)">Manager(Finance)</option>
+                                                <option value="Jr. Accounts Officer">Jr. Accounts Officer</option>
+                                                <option value="Accountant">Accountant</option>
+                                                <option value="Personal Assistant">Personal Assistant</option>
+                                                <option value="Stenographer">Stenographer</option>
+                                                <option value="Sr.Accounts officer">Sr.Accounts officer</option>
+                                                <option value="Accounts Officer">Accounts Officer</option>
+
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
@@ -74,14 +90,14 @@ if (isset($_POST["submit"])) {
                                     <div class="span6"  style="float: left">
                                         <label class="control-label ">PAY SCALE:</label>
                                         <div class="controls">
-                                            <input type="text" name="pay_scale"  onKeyPress="return isNumberKey(event)" value="" maxlength="20" minlength="8"  class="span12"   placeholder="" />
+                                            <input type="text" name="pay_scale"  onKeyPress="return isNumberKey(event)" value="" maxlength="20" minlength="8"  class="span12" required=""  placeholder="" />
                                         </div>
                                     </div>
 
                                     <div class="span6"  >
                                         <label class="control-label ">D.O.B:</label>
                                         <div class="controls">
-                                            <input type="date" name="dob" id="dob" value="" maxlength="255" class="span12"  required="" placeholder="yyyy-mm-dd" />
+                                            <input type="date" name="dob" id="dob" value="" maxlength="" class="span12"  required="" placeholder="yyyy-mm-dd" />
                                         </div>
                                     </div>
                                 </div>
@@ -96,14 +112,14 @@ if (isset($_POST["submit"])) {
                                     <div class="span6"  style="float: left">
                                         <label class="control-label ">PASSWORD:</label>
                                         <div class="controls">
-                                            <input type="text" name="password"   value="" maxlength="30" class="span12"   placeholder="" />
+                                            <input type="password" name="password"   value="" maxlength="30" minlength="8" class="span12" required=""   placeholder="" />
                                         </div>
                                     </div>
                                 </div>
                                 <div class="span10"  style="float: left">
                                     <label class="control-label ">RE-TYPE PASSWORD:</label>
                                     <div class="controls">
-                                        <input type="text" name=""   value="" maxlength="20" minlength="8"  class="span12"   placeholder="" />
+                                        <input type="password" name=""   value="" maxlength="30" minlength="8"  class="span12"   placeholder="" />
                                     </div>
                                 </div>
                             </div>

@@ -49,8 +49,6 @@ $resource = MysqlConnection::fetchAll("tbl_employee");
 
                                 <th style="width: 1%">Edit</th>
                                 <th  style="width: 1%">Delete</th>
-
-                                <th>Employee id</th>
                                 <th>First Name</th>
                                 <th>Last Name</th>
                                 <th>Contact No</th>
@@ -79,7 +77,7 @@ $resource = MysqlConnection::fetchAll("tbl_employee");
                                             <i class="icon-remove"></i>
                                         </a>                                  
                                     </td>
-                                    <td><?php echo $result["txtId"] ?></td>
+                                    
                                     <td><?php echo $result["fname"] ?></td>
                                     <td><?php echo $result["lname"] ?></td>
                                     <td><?php echo $result["contact"] ?></td>

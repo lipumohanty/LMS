@@ -48,26 +48,26 @@ $employee = MysqlConnection::fetchByPrimary("tbl_employee", $txtId);
                                 <div class="span6"  style="float: left">
                                     <label class="control-label ">CONTACT NO :</label>
                                     <div class="controls">
-                                        <input type="text" name="contact"  value="<?php echo $employee["contact"] ?>" maxlength="10" minlength="10" onKeyPress="return isNumberKey(event)" class="span12"   placeholder="" />
+                                        <input type="text" name="contact"  value="<?php echo $employee["contact"] ?>" maxlength="10" minlength="10" onKeyPress="return isNumberKey(event)" class="span12" required=""  placeholder="" />
                                     </div>
                                 </div>
                                 <div class="span6"  style="float: left">
                                     <label class="control-label ">E-MAIL ID:</label>
                                     <div class="controls">
-                                        <input type="text" name="email"  value="<?php echo $employee["email"] ?>" maxlength="30" minlength="10" class="span12"   placeholder="" />
+                                        <input type="text" name="email"  value="<?php echo $employee["email"] ?>" maxlength="30" minlength="10" class="span12" required=""  placeholder="" />
                                     </div>
                                 </div>
                                 <div class="span12">
                                     <div class="span6"  style="float: left">
                                         <label class="control-label ">JOIN DATE :</label>
                                         <div class="controls">
-                                            <input type="text" name="join_date" id="join_date"  value="<?php echo $employee["join_date"] ?>" maxlength="20" minlength="8"  class="span12"   placeholder="yyyy-mm-dd" />
+                                            <input type="text" name="join_date" id="join_date"  value="<?php echo $employee["join_date"] ?>" maxlength="20" minlength="8"  class="span12" required=""  placeholder="yyyy-mm-dd" />
                                         </div>
                                     </div>
                                     <div class="span6"  style="float: left">
                                         <label class="control-label ">DESIGNATION :</label>
                                         <div class="controls">
-                                            <input type="text" name="designation"  value="<?php echo $employee["designation"] ?>" maxlength="20" minlength="8"  class="span12"   placeholder="" />
+                                            <input type="text" name="designation"  value="<?php echo $employee["designation"] ?>" maxlength="20" minlength="8"  class="span12" required=""  placeholder="" />
                                         </div>
                                     </div>
                                 </div>
@@ -75,7 +75,7 @@ $employee = MysqlConnection::fetchByPrimary("tbl_employee", $txtId);
                                     <div class="span6"  style="float: left">
                                         <label class="control-label ">PAY SCALE:</label>
                                         <div class="controls">
-                                            <input type="text" name="pay_scale"  onKeyPress="return isNumberKey(event)" value="<?php echo $employee["pay_scale"] ?>" maxlength="20" minlength="8"  class="span12"   placeholder="" />
+                                            <input type="text" name="pay_scale"  onKeyPress="return isNumberKey(event)" value="<?php echo $employee["pay_scale"] ?>" maxlength="20" minlength="8"  class="span12" required=""  placeholder="" />
                                         </div>
                                     </div>
 
@@ -108,7 +108,7 @@ $employee = MysqlConnection::fetchByPrimary("tbl_employee", $txtId);
 
                                     <button type="submit" name="submit" class="btn btn-success">SUBMIT</button>
                                     <button type="reset" name="reset" class="btn btn-primary">RESET</button>
-                                    <a href="index.php?requestPage=viewleave_leave"><button type="button" class="btn btn-info">VIEW</button></a>
+                                    <a href="index.php?requestPage=view_employee"><button type="button" class="btn btn-info">VIEW</button></a>
                                     <button type="submit" class="btn btn-danger">CANCEL</button>
 
 
