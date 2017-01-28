@@ -1,8 +1,9 @@
 <?php
+session_start();
 if (isset($_POST["submit"])) {
     unset($_POST["submit"]);
-//$_POST["added_by"] = $_SESSION[""];
-//$_POST["added_date"] = date("y-m-d");
+echo $_POST["added_by"] = $_SESSION["login"]["name_user"];
+echo $_POST["added_date"] = date("y-m-d");
     MysqlConnection::insert("tbl_addleave", $_POST);
     exit;
 }
@@ -53,21 +54,21 @@ if (isset($_POST["submit"])) {
 
                             </div>
                             <div class="span11">
-                                <div class="span11"  style="float: left">
-                                    <label class="control-label ">ADDED DATE:</label>
+                               <!-- <div class="span11"  style="float: left">-->
+                                    <!--<label class="control-label ">ADDED DATE:</label>-->
                                     <div class="controls">
-                                        <input type="text" name="added_date" id="added_date" value="" maxlength="" class="span12"   placeholder="" />
+                                        <input type="hidden" name="added_date" id="added_date" value="<?php echo date("y-m-d") ?>" maxlength="" class="span12"   placeholder="" />
                                     </div>
-                                </div>
+                                <!--</div>-->
 
                             </div>
                             <div class="span11">
-                                <div class="span11"  style="float: left">
-                                    <label class="control-label ">ADDED BY:</label>
+                                <!--<div class="span11"  style="float: left">-->
+                                   <!-- <label class="control-label ">ADDED BY:</label>-->
                                     <div class="controls">
-                                        <input type="text" name="added_by" value="" maxlength="30" class="span12"   placeholder="" />
+                                        <input type="hidden" name="added_by" value="<?php echo $_SESSION["name_user"] ?>" maxlength="30" class="span12"   placeholder="" />
                                     </div>
-                                </div>
+                                <!--</div>-->
 
                             </div>
                             <div class="span11">

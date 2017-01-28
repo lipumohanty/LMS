@@ -47,7 +47,7 @@ $employee = MysqlConnection::fetchByPrimary("tbl_addleave", $txtId);
                                 <div class="span11"  style="float: left">
                                     <label class="control-label ">NO OF COUNT:</label>
                                     <div class="controls">
-                                        <input type="text" name="no_count" value="<?php echo $employee["no_count"] ?>" maxlength="`" class="span12" onKeyPress="return isNumberKey(event)"  placeholder="" />
+                                        <input type="text" name="no_count" value="<?php echo $employee["no_count"] ?>" maxlength="`" class="span12" required="" onKeyPress="return isNumberKey(event)"  placeholder="" />
                                     </div>
                                 </div>
 

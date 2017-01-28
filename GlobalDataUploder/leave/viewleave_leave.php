@@ -44,7 +44,6 @@ $resource = MysqlConnection::fetchAll("tbl_addleave");
                             <tr>
                                 <th style="width: 1%">Edit</th>
                                 <th  style="width: 1%">Delete</th>
-                                <th>Leave id</th>
                                 <th>Leave type</th>
                                 <th>Description</th>
                                 <th>No Of Count</th>
@@ -70,7 +69,7 @@ $resource = MysqlConnection::fetchAll("tbl_addleave");
                                             <i class="icon-remove"></i>
                                         </a>                                  
                                     </td>
-                                    <td><?php echo $result["txtId"] ?></td>
+                                   
                                     <td><?php echo $result["leave_type"] ?></td>
                                     <td><?php echo $result["description"] ?></td>
                                     <td><?php echo $result["no_count"] ?></td>
