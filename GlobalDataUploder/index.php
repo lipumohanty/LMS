@@ -1,6 +1,7 @@
 we<?php 
 error_log(0);
 session_start();
+ob_start();
 include './service/MySql.php';
 include './service/UtilService.php';
 ?>

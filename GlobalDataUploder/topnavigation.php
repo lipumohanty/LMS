@@ -1,5 +1,4 @@
 <ul class="nav">
-
     <li  class="dropdown" id="profile-messages" >
         <a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle" style="color: white">
             <i class="icon icon-user"></i>  
