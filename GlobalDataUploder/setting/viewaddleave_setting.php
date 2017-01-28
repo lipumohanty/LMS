@@ -49,8 +49,8 @@ $resource = MysqlConnection::fetchAll("tbl_leavesetting");
 
                                 <th style="width: 1%">Edit</th>
                                 <th  style="width: 1%">Delete</th>
-                                <th>Leave Setting id</th>
-                                <th>Employee id</th>
+                               
+                                <th>Employee Name</th>
                                 <th>Commuted Leave</th>
                                 <th>Halfpay Leave</th>
                                 <th>Special Leave</th>
@@ -74,7 +74,7 @@ $resource = MysqlConnection::fetchAll("tbl_leavesetting");
                                             <i class="icon-remove"></i>
                                         </a>                                  
                                     </td>                                  
-                                    <td><?php echo $result["txtId"] ?></td>
+                                    
                                     <td>
                                         <?php 
                                         $resultemp =  getEmployeeById($result["emp_id"]);

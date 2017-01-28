@@ -49,7 +49,7 @@ $resource = MysqlConnection::fetchAll("tbl_predefinedleave");
 
                                 <th style="width: 1%">Edit</th>
                                 <th  style="width: 1%">Delete</th>
-                                <th>Predefined Leave id</th>
+                               
                                 <th>Date</th>
                                 <th>Name</th>
                                 <th>Description</th>
@@ -72,7 +72,7 @@ $resource = MysqlConnection::fetchAll("tbl_predefinedleave");
                                             <i class="icon-remove"></i>
                                         </a>                                  
                                     </td>                                  
-                                    <td><?php echo $result["txtId"] ?></td>
+                                    
 
                                     <td><?php echo $result["date_leave"] ?></td>
                                     <td><?php echo $result["name"] ?></td>
