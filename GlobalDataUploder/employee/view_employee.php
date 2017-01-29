@@ -2,15 +2,14 @@
 error_reporting(0);
 MysqlConnection::connect();
 $resource = MysqlConnection::fetchAll("tbl_employee");
-
 if (isset($_POST["btnSearch"])) {
-    $employee_id = $_POST["employee_id"];
-    $username = $_POST["username"];
+    $fname = $_POST["fname"];
+    $email = $_POST["email"];
     $contact = $_POST["contact"];
     $designation = $_POST["designation"];
     $sql_custom = "SELECT * FROM `tbl_employee` "
-            . " WHERE `fname` LIKE '%$employee_id%' "
-            . " AND `email` LIKE '%$username%' "
+            . " WHERE `fname` LIKE '%$fname%' "
+            . " AND `email` LIKE '%$email%' "
             . " AND `contact` LIKE '%$contact%' "
             . " AND `designation` LIKE '%$designation%' "
             . ""
@@ -23,21 +22,21 @@ if (isset($_POST["btnSearch"])) {
         <div class="span12">
             <div class="widget-box">
                 <div class="widget-title"> <span class="icon"> <i class="icon-cloud"></i> </span>
-                    <h5>SEARCH LEAVE BY EMPLOYEE ID </h5>
+                    <h5>SEARCH RECORD BY CATAGORIES </h5>
                 </div>
                 <div class="widget-content nopadding">
                     <form class="form-horizontal" method="post" action="" name="basic_validate" id="basic_validate" novalidate="novalidate">
                         <div class="span11">
                             <div class="span6"  style="float: left">
-                                <label class="control-label ">CONTACT NO :</label>
+                                <label class="control-label ">NAME :</label>
                                 <div class="controls">
-                                    <input type="text" name="employee_id"  value="<?php echo $employee_id ?>" maxlength="10" minlength="10" required=""  class="span12"   placeholder="" />
+                                    <input type="text" name="fname"  value="<?php echo $fname ?>" maxlength="10" minlength="10" required=""  class="span12"   placeholder="" />
                                 </div>
                             </div>
                             <div class="span6"  style="float: left">
                                 <label class="control-label ">E-MAIL ID:</label>
                                 <div class="controls">
-                                    <input type="email" name="username"  value="<?php echo $username ?>" maxlength="30" minlength="10" class="span12" required=""   placeholder="" />
+                                    <input type="email" name="email"  value="<?php echo $email ?>" maxlength="30" minlength="10" class="span12" required=""   placeholder="" />
                                 </div>
                             </div>
                         </div>
@@ -49,22 +48,21 @@ if (isset($_POST["btnSearch"])) {
                                 </div>
                             </div>
                             <div class="span6"  style="float: left">
-                                <label class="control-label ">E-MAIL ID:</label>
+                                <label class="control-label ">DESIGNATION :</label>
                                 <div class="controls">
                                     <input type="email" name="designation"  value="<?php echo $designation ?>" maxlength="30" minlength="10" class="span12" required=""   placeholder="" />
                                 </div>
                             </div>
                         </div>
-                        <div class="span11">
-                            <div class="span6"  style="float: left">
-                                <label class="control-label "></label>
-                                <div class="controls">
+                        <div class="control-group">
+                            <center>
+                                <div class="form-actions right">
                                     <button type="submit" name="btnSearch" class="btn btn-success">Search</button>
                                     <button type="submit" class="btn btn-danger">Clear</button>
                                     <a href="index.php?requestPage=add_employee"><button type="button" class="btn btn-info">Add</button></a>
                                 </div>
-                            </div>
 
+                            </center>
                         </div>
                     </form>
                 </div>
@@ -89,11 +87,9 @@ if (isset($_POST["btnSearch"])) {
                                     <th>Pay Scale</th>
                                     <th>Date Of Birth</th>
                                     <th>Address</th>
-
                                 </tr>
                             </thead>
                             <tbody>
-
                                 <?php
                                 foreach ($resource as $result) {
                                     ?>
@@ -104,11 +100,10 @@ if (isset($_POST["btnSearch"])) {
                                             </a>
                                         </td>
                                         <td>
-                                            <a title="DELETE" onclick="return confirm('Want to delete?');" href="index.php?requestPage=request_delete&tblname=tbl_employee&pkvalue=<?php echo $result["txtId"] ?>&location=index.php?requestPage=view_employee">
+                                            <a title="DELETE" onclick="return confirm('Are You Sure Want to delete this Record?');" href="index.php?requestPage=request_delete&tblname=tbl_employee&pkvalue=<?php echo $result["txtId"] ?>&location=index.php?requestPage=view_employee">
                                                 <i class="icon-remove"></i>
                                             </a>                                  
                                         </td>
-
                                         <td><?php echo $result["fname"] ?></td>
                                         <td><?php echo $result["lname"] ?></td>
                                         <td><?php echo $result["contact"] ?></td>
@@ -126,8 +121,6 @@ if (isset($_POST["btnSearch"])) {
                             </tbody>
                         </table>
                     </div>
-
-
                 </div>
             </div>
         </div>

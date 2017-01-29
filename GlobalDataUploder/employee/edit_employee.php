@@ -19,7 +19,6 @@ $employee = MysqlConnection::fetchByPrimary("tbl_employee", $txtId);
     });
 
 </script>
-
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="span12">
@@ -33,95 +32,80 @@ $employee = MysqlConnection::fetchByPrimary("tbl_employee", $txtId);
                                 <div class="span6"  style="float: left">
                                     <label class="control-label ">FIRST NAME:</label>
                                     <div class="controls">
-                                        <input type="text" name="fname" autofocus="" value="<?php echo $employee["fname"] ?>" maxlength="30" class="span12"  required="" placeholder="" />
+                                        <input type="text" name="fname" autofocus="" value="<?php echo $employee["fname"] ?>" maxlength="30" minlength="2" class="span12"  required="true" placeholder="" />
                                     </div>
                                 </div>
                                 <div class="span6"  style="float: left">
                                     <label class="control-label ">LAST NAME:</label>
                                     <div class="controls">
-                                        <input type="text" name="lname" autofocus="" value="<?php echo $employee["lname"] ?>" maxlength="30" class="span12"  required="" placeholder="" />
+                                        <input type="text" name="lname" autofocus="" value="<?php echo $employee["lname"] ?>" maxlength="30" minlength="2" class="span12"  required="true" placeholder="" />
                                     </div>
                                 </div>
                             </div>
-
                             <div class="span10">
                                 <div class="span6"  style="float: left">
                                     <label class="control-label ">CONTACT NO :</label>
                                     <div class="controls">
-                                        <input type="text" name="contact"  value="<?php echo $employee["contact"] ?>" maxlength="10" minlength="10" onKeyPress="return isNumberKey(event)" class="span12" required=""  placeholder="" />
+                                        <input type="text" name="contact"  value="<?php echo $employee["contact"] ?>" maxlength="10" minlength="10" onKeyPress="return isNumberKey(event)" class="span12" required="true"  placeholder="" />
                                     </div>
                                 </div>
                                 <div class="span6"  style="float: left">
                                     <label class="control-label ">E-MAIL ID:</label>
                                     <div class="controls">
-                                        <input type="text" name="email"  value="<?php echo $employee["email"] ?>" maxlength="30" minlength="10" class="span12" required=""  placeholder="" />
+                                        <input type="text" name="email"  value="<?php echo $employee["email"] ?>" maxlength="30" minlength="10" class="span12" required="true"  placeholder="" />
                                     </div>
                                 </div>
-                                <div class="span12">
-                                    <div class="span6"  style="float: left">
-                                        <label class="control-label ">JOIN DATE :</label>
-                                        <div class="controls">
-                                            <input type="text" name="join_date" id="join_date"  value="<?php echo $employee["join_date"] ?>" maxlength="20" minlength="8"  class="span12" required=""  placeholder="yyyy-mm-dd" />
-                                        </div>
-                                    </div>
-                                    <div class="span6"  style="float: left">
-                                        <label class="control-label ">DESIGNATION :</label>
-                                        <div class="controls">
-                                            <input type="text" name="designation"  value="<?php echo $employee["designation"] ?>" maxlength="20" minlength="8"  class="span12" required=""  placeholder="" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="span12">
-                                    <div class="span6"  style="float: left">
-                                        <label class="control-label ">PAY SCALE:</label>
-                                        <div class="controls">
-                                            <input type="text" name="pay_scale"  onKeyPress="return isNumberKey(event)" value="<?php echo $employee["pay_scale"] ?>" maxlength="20" minlength="8"  class="span12" required=""  placeholder="" />
-                                        </div>
-                                    </div>
-
-                                    <div class="span6"  >
-                                        <label class="control-label ">D.O.B:</label>
-                                        <div class="controls">
-                                            <input type="date" name="dob" id="dob" value="<?php echo $employee["dob"] ?>" maxlength="255" class="span12"  required="" placeholder="yyyy-mm-dd" />
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="span12">
-                                    <div class="span6"  >
-                                        <label class="control-label ">ADDRESS:</label>
-                                        <div class="controls">
-                                            <input type="text" name="address" value="<?php echo $employee["address"] ?>" maxlength="255" class="span12"  required="" placeholder="" />
-                                        </div>
-                                    </div>
-
-                                </div>
-
                             </div>
-
-
-
-                        </div>
-                        <div class="control-group">
-                            <center>
-                                <div class="form-actions right">
-
-                                    <button type="submit" name="submit" class="btn btn-success">SUBMIT</button>
-                                    <button type="reset" name="reset" class="btn btn-primary">RESET</button>
-                                    <a href="index.php?requestPage=view_employee"><button type="button" class="btn btn-info">VIEW</button></a>
-                                    <button type="submit" class="btn btn-danger">CANCEL</button>
-
-
+                            <div class="span10">
+                                <div class="span6"  style="float: left">
+                                    <label class="control-label ">JOIN DATE :</label>
+                                    <div class="controls">
+                                        <input type="text" name="join_date" id="join_date"  value="<?php echo $employee["join_date"] ?>" maxlength="20" minlength="8"  class="span12" required="true"  placeholder="yyyy-mm-dd" />
+                                    </div>
                                 </div>
-                            </center>
+                                <div class="span6"  style="float: left">
+                                    <label class="control-label ">DESIGNATION :</label>
+                                    <div class="controls">
+                                        <input type="text" name="designation"  value="<?php echo $employee["designation"] ?>" maxlength="20" minlength="8"  class="span12" required="true"  placeholder="" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="span10">
+                                <div class="span6"  style="float: left">
+                                    <label class="control-label ">PAY SCALE:</label>
+                                    <div class="controls">
+                                        <input type="text" name="pay_scale"  onKeyPress="return isNumberKey(event)" value="<?php echo $employee["pay_scale"] ?>" maxlength="20" minlength="8"  class="span12" required="true"  placeholder="" />
+                                    </div>
+                                </div>
+                                <div class="span6" style="float: left" >
+                                    <label class="control-label ">D.O.B:</label>
+                                    <div class="controls">
+                                        <input type="date" name="dob" id="dob" value="<?php echo $employee["dob"] ?>" maxlength="255" class="span12"  required="true" placeholder="yyyy-mm-dd" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="span10">
+                                <div class="span6" style="float: left" >
+                                    <label class="control-label ">ADDRESS:</label>
+                                    <div class="controls">
+                                        <input type="text" name="address" value="<?php echo $employee["address"] ?>" maxlength="255" minlength="10" class="span12"  required="true" placeholder="" />
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </form>
                 </div>
+                <div class="control-group">
+                    <center>
+                        <div class="form-actions right">
+                            <button type="submit" name="submit" class="btn btn-success">SUBMIT</button>
+                            <button type="submit" class="btn btn-danger">CANCEL</button>
+                        </div>
+                    </center>
+                </div>
+                </form>
             </div>
         </div>
     </div>
 </div>
-
-
 
 
