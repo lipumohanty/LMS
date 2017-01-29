@@ -2,30 +2,51 @@
 error_reporting(0);
 MysqlConnection::connect();
 $resource = MysqlConnection::fetchAll("tbl_predefinedleave");
+if (isset($_POST["btnSearch"])) {
+    $name = $_POST["name"];
+    $date_leave = $_POST["date_leave"];
+
+    $sql_custom = "SELECT * FROM `tbl_predefinedleave` "
+            . " WHERE `name` LIKE '%$name%' "
+            . " AND `date_leave` LIKE '%$date_leave%' ";
+
+    $resource = MysqlConnection::fetchCustom($sql_custom);
+}
 ?>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+    $(function () {
+        $("#date_leave").datepicker({dateFormat: 'yy-mm-dd'});
+    });
+
+</script>
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="span12">
             <div class="widget-box">
                 <div class="widget-title"> <span class="icon"> <i class="icon-cloud"></i> </span>
-                    <h5>SEARCH LEAVE BY EMPLOYEE ID </h5>
+                    <h5>SEARCH </h5>
                 </div>
                 <div class="widget-content nopadding">
-                    <form class="form-horizontal" method="post" action="../OffsetuserServlet" name="basic_validate" id="basic_validate" novalidate="novalidate">
+                    <form class="form-horizontal" method="post" action="" name="basic_validate" id="basic_validate" novalidate="novalidate">
                         <div class="control-group">
-                            <label class="control-label ">EMPLOYEE ID :</label>
+                            <label class="control-label ">NAME :</label>
                             <div class="controls">
-                                <input type="text" name="employee_id"   autofocus="" maxlength="10" class="span11"    placeholder="EMPLOYEE ID" />
+                                <input type="text" name="name"  value="<?php echo $name ?>" autofocus="" maxlength="10" class="span11"    placeholder="" />
                             </div>
-                            <label class="control-label ">USERNAME :</label>
+                            <label class="control-label ">DATE :</label>
                             <div class="controls">
-                                <input type="text" name="username"   autofocus="" maxlength="100" class="span11"    placeholder="USERNAME" />
+                                <input type="text" name="date_leave" id="date_leave" value="<?php echo $date_leave ?>" autofocus="" maxlength="100" class="span11"    placeholder="" />
                             </div>
                             <div class="controls">
-                                <input type="hidden" name="<%= IServletConstant.ACTION%>" value="<%= IServletConstant.ACTION_SEARCH%>" />
-                                <button type="submit" class="btn btn-success">Search</button>
-                                <button type="submit" class="btn btn-danger">Clear</button>
-                                  <a href="index.php?requestPage=predefined_setting"><button type="button" class="btn btn-info">Add</button></a>
+                                <center>
+
+                                    <button type="submit" name="btnSearch" class="btn btn-success">Search</button>
+                                    <button type="submit" class="btn btn-danger">Clear</button>
+                                    <a href="index.php?requestPage=predefined_setting"><button type="button" class="btn btn-info">Add</button></a>
+                                </center>
                             </div>
                         </div>
                     </form>
@@ -40,16 +61,16 @@ $resource = MysqlConnection::fetchAll("tbl_predefinedleave");
         <div class="span12">
             <div class="widget-box">
                 <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
-                    <h5>VIEW EMPLOYEE</h5>
+                    <h5>VIEW PREDEFINED LEAVE</h5>
                 </div>
                 <div class="widget-content nopadding">
-                    <table class="table table-bordered data-table">
+                    <table class="table table-bordered data-table" style="font-size: 11px;">
                         <thead>
                             <tr>
 
-                                <th style="width: 1%">Edit</th>
-                                <th  style="width: 1%">Delete</th>
-                               
+                                <th style="width: 1%">#</th>
+                                <th  style="width: 1%">#</th>
+
                                 <th>Date</th>
                                 <th>Name</th>
                                 <th>Description</th>
@@ -63,16 +84,16 @@ $resource = MysqlConnection::fetchAll("tbl_predefinedleave");
                                 ?>
                                 <tr class="gradeX">
                                     <td>
-                                        <a href="index.php?requestPage=editpredefined_setting&txtId=<?php echo $result["txtId"] ?>">
+                                        <a  title="EDIT" href="index.php?requestPage=editpredefined_setting&txtId=<?php echo $result["txtId"] ?>">
                                             <i class="icon-pencil"></i>
                                         </a>
                                     </td>
                                     <td>
-                                        <a href="index.php?requestPage=request_delete&tblname=tbl_predefinedleave&pkvalue=<?php echo $result["txtId"] ?>&location=index.php?requestPage=viewpredefined_setting">
+                                        <a title="DELETE" onclick="return confirm('Are You Sure Want to delete this Record?');" href="index.php?requestPage=request_delete&tblname=tbl_predefinedleave&pkvalue=<?php echo $result["txtId"] ?>&location=index.php?requestPage=viewpredefined_setting">
                                             <i class="icon-remove"></i>
                                         </a>                                  
                                     </td>                                  
-                                    
+
 
                                     <td><?php echo $result["date_leave"] ?></td>
                                     <td><?php echo $result["name"] ?></td>
@@ -82,7 +103,6 @@ $resource = MysqlConnection::fetchAll("tbl_predefinedleave");
                                 <?php
                             }
                             ?>
-
 
                         </tbody>
                     </table>

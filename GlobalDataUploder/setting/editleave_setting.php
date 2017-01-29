@@ -8,7 +8,6 @@ if (isset($_POST["submit"])) {
 $employee = MysqlConnection::fetchByPrimary("tbl_leavesetting", $txtId);
 ?>
 
-
 <div class="container-fluid">
     <hr>
     <div class="row-fluid">
@@ -22,32 +21,28 @@ $employee = MysqlConnection::fetchByPrimary("tbl_leavesetting", $txtId);
                         <div class="control-group" style="background-color: white;">
                             <div class="span11" style="clear: both "></div>
                             <div class="span11">
-                                <div class="span11"  style="float: left">
+                                <div class="span6"  style="float: left">
                                     <label class="control-label ">EMPLOYEE ID:</label>
                                     <div class="controls">
                                         <input type="text" name="emp_id" value="" maxlength="" class="span12"   placeholder="" />
                                     </div>
                                 </div>
-
-                            </div>
-                            <div class="span11">
-                                <div class="span11"  style="float: left">
+                                <div class="span6"  style="float: left">
                                     <label class="control-label ">COMMUTED LEAVE :</label>
                                     <div class="controls">
                                         <input type="text" name="commuted_leave" autofocus="" value="<?php echo $employee["commuted_leave"] ?>" maxlength="" class="span12"  required="" placeholder="" />
                                     </div>
                                 </div>
                             </div>
+
                             <div class="span11">
-                                <div class="span11"  style="float: left">
+                                <div class="span6"  style="float: left">
                                     <label class="control-label ">HALF PAY LEAVE :</label>
                                     <div class="controls">
                                         <input type="text" name="halfpay_leave"  value="<?php echo $employee["halfpay_leave"] ?>"  maxlength="" class="span12"  required="" placeholder="" />
                                     </div>
                                 </div>
-                            </div>
-                            <div class="span11">
-                                <div class="span11"  style="float: left">
+                                <div class="span6"  style="float: left">
                                     <label class="control-label ">SPECIAL LEAVE: </label>
                                     <div class="controls">
                                         <input type="text" name="special_leave" value="<?php echo $employee["special_leave"] ?>" maxlength="" class="span12"   placeholder="" />
@@ -55,24 +50,21 @@ $employee = MysqlConnection::fetchByPrimary("tbl_leavesetting", $txtId);
                                 </div>
                             </div>
 
+
                             <div class="span11">
-                                <div class="span11"  style="float: left">
+                                <div class="span6"  style="float: left">
                                     <label class="control-label ">LEAVING OF HEADQUARTER :</label>
                                     <div class="controls">
                                         <input type="text" name="leaving_hq" value="<?php echo $employee["leaving_hq"] ?>" maxlength="" class="span12"   placeholder="" />
                                     </div>
                                 </div>
-
                             </div>
-
                         </div>
                         <div class="control-group">
                             <center>
                                 <div class="form-actions right">
-
-                                    <a href=""><button type="submit" name="submit" class="btn btn-success">OK</button>
-                                        <button type="reset" class="btn btn-primary">RESET</button>
-                                        <a href="index.php?requestPage=viewaddleave_setting"><button type="button" class="btn btn-info">VIEW</button></a>
+                                    <a href=""><button type="submit" name="submit" class="btn btn-success">SUBMIT</button>
+                                        <button type="submit" class="btn btn-danger">CANCEL</button>
                                 </div>
                             </center>
                         </div>

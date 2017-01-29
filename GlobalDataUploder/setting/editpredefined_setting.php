@@ -17,7 +17,6 @@ $employee = MysqlConnection::fetchByPrimary("tbl_predefinedleave", $txtId);
 
 </script>
 
-
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="span12">
@@ -28,8 +27,6 @@ $employee = MysqlConnection::fetchByPrimary("tbl_predefinedleave", $txtId);
                         <div class="control-group" style="background-color: white;">
                             <div class="span11" style="clear: both "></div>
 
-
-
                             <div class="span11">
                                 <div class="span11"  style="float: left">
                                     <label class="control-label ">&nbsp;ADDED&nbsp;DATE:&nbsp;</label>
@@ -37,7 +34,6 @@ $employee = MysqlConnection::fetchByPrimary("tbl_predefinedleave", $txtId);
                                         <input type="text" name="date_leave" id="date_leave" value="<?php echo $employee["date_leave"] ?>" maxlength="" class="span12"   placeholder="" />
                                     </div>
                                 </div>
-
                             </div>
                             <div class="span11">
                                 <div class="span11"  style="float: left">
@@ -55,15 +51,11 @@ $employee = MysqlConnection::fetchByPrimary("tbl_predefinedleave", $txtId);
                                     </div>
                                 </div>
                             </div>
-
                             <div class="control-group">
                                 <center>
                                     <div class="form-actions right">
-
-                                        <a href=""><button type="submit" name="submit" class="btn btn-success">ADD</button>
-                                            <button type="reset" class="btn btn-primary">RESET</button>
-                                            <a href="index.php?requestPage=viewpredefined_setting"><button type="button" class="btn btn-info">VIEW</button></a>
-                                            <a href="index.php?requestPage="><button type="button" class="btn btn-info">EDIT</button></a>
+                                        <a href=""><button type="submit" name="submit" class="btn btn-success">SUBMIT</button>
+                                            <button type="submit" class="btn btn-danger">CANCEL</button>
                                     </div>
                                 </center>
                             </div>

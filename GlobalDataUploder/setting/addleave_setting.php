@@ -7,8 +7,6 @@ if (isset($_POST["submit"])) {
 }
 ?>
 
-
-
 <div class="container-fluid">
     <hr>
     <div class="row-fluid">
@@ -22,32 +20,28 @@ if (isset($_POST["submit"])) {
                         <div class="control-group" style="background-color: white;">
                             <div class="span11" style="clear: both "></div>
                             <div class="span11">
-                                <div class="span11"  style="float: left">
+                                <div class="span6"  style="float: left">
                                     <label class="control-label ">EMPLOYEE ID:</label>
                                     <div class="controls">
                                         <input type="text" name="emp_id" value="" maxlength="" class="span12"   placeholder="" />
                                     </div>
                                 </div>
-
-                            </div>
-                            <div class="span11">
-                                <div class="span11"  style="float: left">
+                                <div class="span6"  style="float: left">
                                     <label class="control-label ">COMMUTED LEAVE :</label>
                                     <div class="controls">
                                         <input type="text" name="commuted_leave" autofocus="" value="" maxlength="" class="span12"  required="" placeholder="" />
                                     </div>
                                 </div>
+
                             </div>
                             <div class="span11">
-                                <div class="span11"  style="float: left">
+                                <div class="span6"  style="float: left">
                                     <label class="control-label ">HALF PAY LEAVE :</label>
                                     <div class="controls">
                                         <input type="text" name="halfpay_leave"  value=""  maxlength="" class="span12"  required="" placeholder="" />
                                     </div>
                                 </div>
-                            </div>
-                            <div class="span11">
-                                <div class="span11"  style="float: left">
+                                <div class="span6"  style="float: left">
                                     <label class="control-label ">SPECIAL LEAVE: </label>
                                     <div class="controls">
                                         <input type="text" name="special_leave" value="" maxlength="" class="span12"   placeholder="" />
@@ -56,23 +50,22 @@ if (isset($_POST["submit"])) {
                             </div>
 
                             <div class="span11">
-                                <div class="span11"  style="float: left">
+                                <div class="span6"  style="float: left">
                                     <label class="control-label ">LEAVING OF HEADQUARTER :</label>
                                     <div class="controls">
                                         <input type="text" name="leaving_hq" value="" maxlength="" class="span12"   placeholder="" />
                                     </div>
                                 </div>
-
                             </div>
-
                         </div>
                         <div class="control-group">
                             <center>
                                 <div class="form-actions right">
 
-                                    <a href=""><button type="submit" name="submit" class="btn btn-success">OK</button>
+                                    <a href=""><button type="submit" name="submit" class="btn btn-success">SUBMIT</button>
                                         <button type="reset" class="btn btn-primary">RESET</button>
                                         <a href="index.php?requestPage=viewaddleave_setting"><button type="button" class="btn btn-info">VIEW</button></a>
+                                        <button type="submit" class="btn btn-danger">CANCEL</button>
                                 </div>
                             </center>
                         </div>
