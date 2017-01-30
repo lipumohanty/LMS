@@ -59,7 +59,7 @@ if (isset($_POST["submit"])) {
                                 <div class="span6"  style="float: left">
                                     <label class="control-label ">JOIN DATE :</label>
                                     <div class="controls">
-                                        <input type="text" name="join_date" id="join_date"  value="" maxlength="20" minlength="8"  class="span12" required="true"  placeholder="yyyy-mm-dd" />
+                                        <input type="text" name="join_date" id="join_date"  value="" maxlength="20" minlength="8"  class="span12"  placeholder="yyyy-mm-dd" required>
                                     </div>
                                 </div>
                                 <div class="span6"  style="float: left">
@@ -88,7 +88,7 @@ if (isset($_POST["submit"])) {
                                 <div class="span6"  style="float: left">
                                     <label class="control-label ">PAY SCALE:</label>
                                     <div class="controls">
-                                        <input type="text" name="pay_scale"  onKeyPress="return isNumberKey(event)" value="" maxlength="20" minlength="4"  class="span12" required="true"  placeholder="" />
+                                        <input type="text" name="pay_scale"  onKeyPress="return isNumberKey(event)" value="" maxlength="30" minlength="4"  class="span12" required="true"  placeholder="" />
                                     </div>
                                 </div>
 
@@ -129,7 +129,7 @@ if (isset($_POST["submit"])) {
                                     <button type="submit" name="submit" class="btn btn-success">SUBMIT</button>
                                     <button type="reset" name="reset" class="btn btn-primary">RESET</button>
                                     <a href="index.php?requestPage=view_employee"><button type="button" class="btn btn-info">VIEW</button></a>
-                                    <button type="submit" class="btn btn-danger">CANCEL</button>
+                                    <a href="index.php?requestPage=view_employee">  <button type="button" class="btn btn-danger">CANCEL</button></a>
                                 </div>
                             </center>
                         </div>
