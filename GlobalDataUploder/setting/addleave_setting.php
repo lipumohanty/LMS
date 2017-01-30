@@ -1,5 +1,11 @@
 <?php
 if (isset($_POST["submit"])) {
+    
+      if (!$_POST['commuted_leave'] | !$_POST['halfpay_leave'] | !$_POST['special_leave'] | !$_POST['leaving_hq'] ) {
+
+ 		die('You did not complete all of the required fields') ;
+
+ 	}
     unset($_POST["submit"]);
 
     MysqlConnection::insert("tbl_leavesetting", $_POST);
