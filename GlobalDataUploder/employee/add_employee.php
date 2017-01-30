@@ -1,5 +1,11 @@
 <?php
 if (isset($_POST["submit"])) {
+    
+    if (!$_POST['fname'] | !$_POST['lname'] | !$_POST['contact'] | !$_POST['email']| !$_POST['join_date']| !$_POST['designation']| !$_POST['pay_scale'] ) {
+
+ 		die('You did not complete all of the required fields') ;
+
+ 	}
     unset($_POST["submit"]);
 
     MysqlConnection::insert("tbl_employee", $_POST);
