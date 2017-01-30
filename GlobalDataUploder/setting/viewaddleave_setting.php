@@ -3,10 +3,10 @@ error_reporting(0);
 MysqlConnection::connect();
 $resource = MysqlConnection::fetchAll("tbl_leavesetting");
 if (isset($_POST["btnSearch"])) {
-    $empfname = $_POST["$resultemp"];
+    $emp_id = $_POST["emp_id"];
    
     $sql_custom = "SELECT * FROM `tbl_leavesetting` "
-            . " WHERE `fname` LIKE '%$empfname%' ";
+            . " WHERE `emp_id` LIKE '%$emp_id%' ";
             
     $resource = MysqlConnection::fetchCustom($sql_custom);
 }
@@ -23,7 +23,7 @@ if (isset($_POST["btnSearch"])) {
                         <div class="control-group">
                             <label class="control-label ">EMPLOYEE NAME :</label>
                             <div class="controls">
-                                <input type="text" name="empfname" value="<?php echo $resultemp["fname"] ?>"  autofocus="" maxlength="10" class="span11"    placeholder="" />
+                                <input type="text" name="emp_id" value="<?php echo $emp_id ?>"  autofocus="" maxlength="10" class="span11"    placeholder="" />
                             </div>
 
                             <div class="controls">
