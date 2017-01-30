@@ -1,5 +1,11 @@
 <?php
 if (isset($_POST["submit"])) {
+    
+      if (!$_POST['date_leave'] | !$_POST['name'] | !$_POST['description']  ) {
+
+ 		die('You did not complete all of the required fields') ;
+
+ 	}
     unset($_POST["submit"]);
 
     MysqlConnection::insert("tbl_predefinedleave", $_POST);
