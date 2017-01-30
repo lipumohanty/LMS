@@ -1,6 +1,11 @@
 <?php
 
 if (isset($_POST["submit"])) {
+     if (!$_POST['leave_type'] | !$_POST['description'] | !$_POST['no_count']  ) {
+
+ 		die('You did not complete all of the required fields') ;
+
+ 	}
     unset($_POST["submit"]);
     $_POST["added_by"] = $_SESSION["login"]["name_user"];
     $_POST["added_date"] = date("y-m-d");
