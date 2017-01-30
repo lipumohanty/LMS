@@ -65,7 +65,7 @@ if (isset($_POST["submit"])) {
                                     <a href=""><button type="submit" name="submit" class="btn btn-success">SUBMIT</button>
                                         <button type="reset" class="btn btn-primary">RESET</button>
                                         <a href="index.php?requestPage=viewaddleave_setting"><button type="button" class="btn btn-info">VIEW</button></a>
-                                        <button type="submit" class="btn btn-danger">CANCEL</button>
+                                        <a href="index.php?requestPage=viewaddleave_setting"><button type="button" class="btn btn-danger">CANCEL</button></a>
                                 </div>
                             </center>
                         </div>
