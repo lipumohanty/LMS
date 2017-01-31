@@ -10,6 +10,7 @@ if (isset($_POST["submit"])) {
     $_POST["added_by"] = $_SESSION["login"]["name_user"];
     $_POST["added_date"] = date("y-m-d");
     MysqlConnection::insert("tbl_addleave", $_POST);
+     header("location:index.php?requestPage=viewleave_leave");
 }
 ?>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>

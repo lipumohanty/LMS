@@ -101,6 +101,17 @@ if (isset($_POST["btnSearch"])) {
                                 <?php
                             }
                             ?>
+                                 <?php 
+                                        if(count($resource)==0){
+                                    ?>
+                                    <tr>
+                                        <td colspan="8" style="text-align: center;color: red">
+                                            No Record Found
+                                        </td>
+                                    </tr>      
+                                    <?php 
+                                        }
+                                    ?>
                         </tbody>
                     </table>
                 </div>
