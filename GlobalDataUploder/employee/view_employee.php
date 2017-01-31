@@ -16,6 +16,19 @@ if (isset($_POST["btnSearch"])) {
             . "";
     $resource = MysqlConnection::fetchCustom($sql_custom);
 }
+$array_designation = array();
+$array_designation[0] = "Chief General Manager(Technical)";
+$array_designation[1] = "Dy.General Manager(Technical)";
+$array_designation[2] = "Manager(Technical)";
+$array_designation[3] = "Dy.Manager(Technical)";
+$array_designation[4] = "Dy.General Manager(Finance & Accounts)";
+$array_designation[5] = "Manager(Finance)";
+$array_designation[6] = "Jr. Accounts Officer";
+$array_designation[7] = "Accountant";
+$array_designation[8] = "Personal Assistant";
+$array_designation[9] = "Stenographer";
+$array_designation[10] = "Sr.Accounts officer";
+$array_designation[11] = "Accounts Officer";
 ?>
 <div class="container-fluid">
     <div class="row-fluid">
@@ -26,11 +39,13 @@ if (isset($_POST["btnSearch"])) {
                 </div>
                 <div class="widget-content nopadding">
                     <form class="form-horizontal" method="post" action="" name="basic_validate" id="basic_validate" novalidate="novalidate">
+                        <div class="control-group" style="background-color: white;">
+                            <div class="span11" style="clear: both "></div>
                         <div class="span11">
                             <div class="span6"  style="float: left">
                                 <label class="control-label ">NAME :</label>
                                 <div class="controls">
-                                    <input type="text" name="fname"  value="<?php echo $fname ?>" maxlength="10" minlength="10" required=""  class="span12"   placeholder="" />
+                                    <input type="text" name="fname"  value="<?php echo $fname ?>" maxlength="50" minlength="10" required=""  class="span12"   placeholder="" />
                                 </div>
                             </div>
                             <div class="span6"  style="float: left">
@@ -48,11 +63,23 @@ if (isset($_POST["btnSearch"])) {
                                 </div>
                             </div>
                             <div class="span6"  style="float: left">
-                                <label class="control-label ">DESIGNATION :</label>
-                                <div class="controls">
-                                    <input type="email" name="designation"  value="<?php echo $designation ?>" maxlength="30" minlength="10" class="span12" required=""   placeholder="" />
+                                    <label class="control-label ">DESIGNATION :</label>
+                                    <div class="controls">
+                                        <select class="span12" id="designation" name="designation" required="true">
+                                            <option value="">Select</option>
+                                            
+                                            <?php
+                                                foreach($array_designation as $designation){
+                                            ?>
+                                            <option value="<?php echo $designation?>"><?php echo $designation?></option>
+                                            <?php
+                                                    
+                                                }
+                                            ?>
+                                            
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
                         </div>
                         <div class="control-group">
                             <center>
@@ -118,6 +145,17 @@ if (isset($_POST["btnSearch"])) {
                                     <?php
                                 }
                                 ?>
+                                    <?php 
+                                        if(count($resource)==0){
+                                    ?>
+                                    <tr>
+                                        <td colspan="11" style="text-align: center;color: red">
+                                            No Record Found
+                                        </td>
+                                    </tr>      
+                                    <?php 
+                                        }
+                                    ?>
                             </tbody>
                         </table>
                     </div>

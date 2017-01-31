@@ -67,6 +67,7 @@ $employee = MysqlConnection::fetchByPrimary("tbl_employee", $txtId);
                                     <label class="control-label ">DESIGNATION :</label>
                                     <div class="controls">
                                         <input type="text" name="designation"  value="<?php echo $employee["designation"] ?>" maxlength="20" minlength="8"  class="span12" required="true"  placeholder="" />
+                                        
                                     </div>
                                 </div>
                             </div>

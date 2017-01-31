@@ -1,7 +1,7 @@
 <?php
 if (isset($_POST["submit"])) {
     
-    if (!$_POST['fname'] | !$_POST['lname'] | !$_POST['contact'] | !$_POST['email']| !$_POST['join_date']| !$_POST['designation']| !$_POST['pay_scale'] ) {
+    if (!$_POST['fname'] | !$_POST['lname'] | !$_POST['contact'] | !$_POST['email']| !$_POST['join_date']| !$_POST['designation']  ) {
 
  		die('You did not complete all of the required fields') ;
 
@@ -11,6 +11,20 @@ if (isset($_POST["submit"])) {
     MysqlConnection::insert("tbl_employee", $_POST);
     header("location:index.php?requestPage=view_employee");
 }
+
+$array_designation = array();
+$array_designation[0] = "Chief General Manager(Technical)";
+$array_designation[1] = "Dy.General Manager(Technical)";
+$array_designation[2] = "Manager(Technical)";
+$array_designation[3] = "Dy.Manager(Technical)";
+$array_designation[4] = "Dy.General Manager(Finance & Accounts)";
+$array_designation[5] = "Manager(Finance)";
+$array_designation[6] = "Jr. Accounts Officer";
+$array_designation[7] = "Accountant";
+$array_designation[8] = "Personal Assistant";
+$array_designation[9] = "Stenographer";
+$array_designation[10] = "Sr.Accounts officer";
+$array_designation[11] = "Accounts Officer";
 ?>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -73,19 +87,16 @@ if (isset($_POST["submit"])) {
                                     <div class="controls">
                                         <select class="span12" id="designation" name="designation" required="true">
                                             <option value="">Select</option>
-                                            <option value="Chief General Manager(Technical)">Chief General Manager(Technical)</option>
-                                            <option value="General Manager(Technical)">General Manager(Technical)</option>
-                                            <option value="Dy.General Manager(Technical)">Dy.General Manager(Technical) </option>
-                                            <option value="Manager(Technical)">Manager(Technical)</option>
-                                            <option value="Dy.Manager(Technical)">Dy.Manager(Technical)</option>
-                                            <option value="Dy.General Manager(Finance & Accounts)">Dy.General Manager(Finance & Accounts)</option>
-                                            <option value="Manager(Finance)">Manager(Finance)</option>
-                                            <option value="Jr. Accounts Officer">Jr. Accounts Officer</option>
-                                            <option value="Accountant">Accountant</option>
-                                            <option value="Personal Assistant">Personal Assistant</option>
-                                            <option value="Stenographer">Stenographer</option>
-                                            <option value="Sr.Accounts officer">Sr.Accounts officer</option>
-                                            <option value="Accounts Officer">Accounts Officer</option>
+                                            
+                                            <?php
+                                                foreach($array_designation as $designation){
+                                            ?>
+                                            <option value="<?php echo $designation?>"><?php echo $designation?></option>
+                                            <?php
+                                                    
+                                                }
+                                            ?>
+                                            
                                         </select>
                                     </div>
                                 </div>
@@ -128,9 +139,10 @@ if (isset($_POST["submit"])) {
                                 </div>
                             </div>
                         </div>
+                         
                         <div class="control-group">
                             <center>
-                                <div class="form-actions right">
+                                <div class="span12 form-actions right">
 
                                     <button type="submit" name="submit" class="btn btn-success">SUBMIT</button>
                                     <button type="reset" name="reset" class="btn btn-primary">RESET</button>
