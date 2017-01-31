@@ -34,7 +34,7 @@ if (isset($_POST["btnSearch"])) {
                         <div class="control-group">
                             <label class="control-label ">NAME :</label>
                             <div class="controls">
-                                <input type="text" name="name"  value="<?php echo $name ?>" autofocus="" maxlength="10" class="span11"    placeholder="" />
+                                <input type="text" name="name"  value="<?php echo $name ?>" autofocus="" maxlength="30" class="span11"    placeholder="" />
                             </div>
                             <label class="control-label ">DATE :</label>
                             <div class="controls">
@@ -103,6 +103,17 @@ if (isset($_POST["btnSearch"])) {
                                 <?php
                             }
                             ?>
+                                 <?php 
+                                        if(count($resource)==0){
+                                    ?>
+                                    <tr>
+                                        <td colspan="5" style="text-align: center;color: red">
+                                            No Record Found
+                                        </td>
+                                    </tr>      
+                                    <?php 
+                                        }
+                                    ?>
 
                         </tbody>
                     </table>

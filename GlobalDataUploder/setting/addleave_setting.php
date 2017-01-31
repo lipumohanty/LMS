@@ -9,6 +9,7 @@ if (isset($_POST["submit"])) {
     unset($_POST["submit"]);
 
     MysqlConnection::insert("tbl_leavesetting", $_POST);
+     header("location:index.php?requestPage=viewaddleave_setting");
     exit;
 }
 ?>

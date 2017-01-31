@@ -9,6 +9,7 @@ if (isset($_POST["submit"])) {
     unset($_POST["submit"]);
 
     MysqlConnection::insert("tbl_predefinedleave", $_POST);
+     header("location:index.php?requestPage=viewpredefined_setting");
     exit;
 }
 ?>

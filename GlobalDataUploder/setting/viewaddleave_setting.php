@@ -4,11 +4,13 @@ MysqlConnection::connect();
 $resource = MysqlConnection::fetchAll("tbl_leavesetting");
 if (isset($_POST["btnSearch"])) {
     $emp_id = $_POST["emp_id"];
-   
-    $sql_custom = "SELECT * FROM `tbl_leavesetting` "
-            . " WHERE `emp_id` LIKE '%$emp_id%' ";
-            
-    $resource = MysqlConnection::fetchCustom($sql_custom);
+    if ($emp_id == -1) {
+        $sql_custom = "SELECT * FROM `tbl_leavesetting`   ";
+        $resource = MysqlConnection::fetchCustom($sql_custom);
+    } else {
+        $sql_custom = "SELECT * FROM `tbl_leavesetting` WHERE `emp_id` =$emp_id  ";
+        $resource = MysqlConnection::fetchCustom($sql_custom);
+    }
 }
 ?>
 <div class="container-fluid">
@@ -23,7 +25,22 @@ if (isset($_POST["btnSearch"])) {
                         <div class="control-group">
                             <label class="control-label ">EMPLOYEE NAME :</label>
                             <div class="controls">
-                                <input type="text" name="emp_id" value="<?php echo $emp_id ?>"  autofocus="" maxlength="10" class="span11"    placeholder="" />
+
+                                <?php
+                                $resultemp = MysqlConnection::fetchAll("tbl_employee");
+                                ?>
+                                <select name="emp_id"  >
+                                    <option value="-1">-please select-</option>
+                                    <?php
+                                    foreach ($resultemp as $employee) {
+                                        ?>
+                                        <option  autofocus="" maxlength="50" class="span11"    placeholder="" value="<?php echo $employee["txtId"] ?>">
+                                            <?php echo $employee["fname"] . " " . $employee["lname"] ?>
+                                        </option>
+                                        <?php
+                                    }
+                                    ?>
+                                </select>
                             </div>
 
                             <div class="controls">
@@ -92,6 +109,17 @@ if (isset($_POST["btnSearch"])) {
                                     <td><?php echo $result["special_leave"] ?></td>
                                     <td><?php echo $result["leaving_hq"] ?></td>
                                 </tr>  
+                                <?php
+                            }
+                            ?>
+                            <?php
+                            if (count($resource) == 0) {
+                                ?>
+                                <tr>
+                                    <td colspan="7" style="text-align: center;color: red">
+                                        No Record Found
+                                    </td>
+                                </tr>      
                                 <?php
                             }
                             ?>
