@@ -27,19 +27,27 @@ if (isset($_POST["btnSearch"])) {
         <div class="span12">
             <div class="widget-box">
                 <div class="widget-title"> <span class="icon"> <i class="icon-cloud"></i> </span>
-                    <h5>SEARCH </h5>
+                    <h5>SEARCH RECORD BY CATAGORIES</h5>
                 </div>
                 <div class="widget-content nopadding">
                     <form class="form-horizontal" method="post" action="" name="basic_validate" id="basic_validate" novalidate="novalidate">
-                        <div class="control-group">
-                            <label class="control-label ">NAME :</label>
-                            <div class="controls">
-                                <input type="text" name="name"  value="<?php echo $name ?>" autofocus="" maxlength="30" class="span11"    placeholder="" />
+                        <div class="control-group" style="background-color: white;">
+                            <div class="span11" style="clear: both "></div>
+                            <div class="span11">
+                                <div class="span6"  style="float: left">
+                                    <label class="control-label ">NAME :</label>
+                                    <div class="controls">
+                                        <input type="text" name="name"  value="<?php echo $name ?>" autofocus="" maxlength="30" class="span11"    placeholder="" />
+                                    </div>
+                                </div>
+                                <div class="span6"  style="float: left">
+                                    <label class="control-label ">DATE :</label>
+                                    <div class="controls">
+                                        <input type="text" name="date_leave" id="date_leave" value="<?php echo $date_leave ?>" autofocus="" maxlength="100" class="span11"    placeholder="" />
+                                    </div>
+                                </div>
                             </div>
-                            <label class="control-label ">DATE :</label>
-                            <div class="controls">
-                                <input type="text" name="date_leave" id="date_leave" value="<?php echo $date_leave ?>" autofocus="" maxlength="100" class="span11"    placeholder="" />
-                            </div>
+                       
                             <div class="controls">
                                 <center>
 
@@ -103,17 +111,17 @@ if (isset($_POST["btnSearch"])) {
                                 <?php
                             }
                             ?>
-                                 <?php 
-                                        if(count($resource)==0){
-                                    ?>
-                                    <tr>
-                                        <td colspan="5" style="text-align: center;color: red">
-                                            No Record Found
-                                        </td>
-                                    </tr>      
-                                    <?php 
-                                        }
-                                    ?>
+                            <?php
+                            if (count($resource) == 0) {
+                                ?>
+                                <tr>
+                                    <td colspan="5" style="text-align: center;color: red">
+                                        No Record Found
+                                    </td>
+                                </tr>      
+                                <?php
+                            }
+                            ?>
 
                         </tbody>
                     </table>

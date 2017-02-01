@@ -6,7 +6,7 @@ error_reporting(0);
 ?>
 
 <h3>
-    Welcome <?php echo $_SESSION["login"]["username"]?>
+    Welcome <?php echo $_SESSION["login"]["name_user"]?>
 </h3>
 <div class="container-fluid">
     <div class="row-fluid">

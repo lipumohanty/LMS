@@ -11,6 +11,8 @@ if (isset($_POST["btnSearch"])) {
             . " AND `no_count` LIKE '%$nocount%' ";
 
     $resource = MysqlConnection::fetchCustom($sql_custom);
+    
+    
 }
 ?>
 <div class="container-fluid">
@@ -18,31 +20,43 @@ if (isset($_POST["btnSearch"])) {
         <div class="span12">
             <div class="widget-box">
                 <div class="widget-title"> <span class="icon"> <i class="icon-cloud"></i> </span>
-                    <h5>SEARCH LEAVE </h5>
+                    <h5>SEARCH RECORD BY CATAGORIES</h5>
                 </div>
                 <div class="widget-content nopadding">
                     <form class="form-horizontal" method="post" action="" name="basic_validate" id="basic_validate" novalidate="novalidate">
-                        <div class="control-group">
-                            <label class="control-label ">LEAVE TYPE :</label>
-                            <div class="controls">
-                                <input type="text" name="leave_type" value="<?php echo $leavetype ?>"  autofocus="" maxlength="100" class="span11"    placeholder="" />
+                        <div class="control-group" style="background-color: white;">
+                            <div class="span11" style="clear: both "></div>
+                            <div class="span11">
+                                <div class="span6"  style="float: left">
+                                    <label class="control-label ">LEAVE TYPE :</label>
+                                    <div class="controls">
+                                        <select name="leave_type">
+                                            <option value="">Select</option>
+                                            <?php
+                                            foreach ($resource as $result) {
+                                                ?>
+                                                <option value="<?php echo $result["leave_type"] ?>" ><?php echo $result["leave_type"] ?></option>
+                                                <?php
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="span6"  style="float: left">
+                                    <label class="control-label ">NO OF COUNT :</label>
+                                    <div class="controls">
+                                        <input type="text" name="no_count" value="<?php echo $nocount ?>"  autofocus="" maxlength="100" class="span11"    placeholder="" />
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="control-group">
-                            <label class="control-label ">NO OF COUNT :</label>
+
                             <div class="controls">
-                                <input type="text" name="no_count" value="<?php echo $nocount ?>"  autofocus="" maxlength="100" class="span11"    placeholder="" />
+                                <center>
+                                    <button type="submit" name="btnSearch" class="btn btn-success">Search</button>
+                                    <button type="submit" class="btn btn-danger">Clear</button>
+                                    <a href="index.php?requestPage=addleave_leave"><button type="button" class="btn btn-info">Add</button></a>
+                                </center>
                             </div>
-                        </div>
-                        <div class="controls">
-                            <center>
-
-                                <button type="submit" name="btnSearch" class="btn btn-success">Search</button>
-                                <button type="submit" class="btn btn-danger">Clear</button>
-                                <a href="index.php?requestPage=addleave_leave"><button type="button" class="btn btn-info">Add</button></a>
-
-                            </center>
-                        </div>
 
                     </form>
                 </div>
@@ -101,17 +115,17 @@ if (isset($_POST["btnSearch"])) {
                                 <?php
                             }
                             ?>
-                                 <?php 
-                                        if(count($resource)==0){
-                                    ?>
-                                    <tr>
-                                        <td colspan="8" style="text-align: center;color: red">
-                                            No Record Found
-                                        </td>
-                                    </tr>      
-                                    <?php 
-                                        }
-                                    ?>
+                            <?php
+                            if (count($resource) == 0) {
+                                ?>
+                                <tr>
+                                    <td colspan="8" style="text-align: center;color: red">
+                                        No Record Found
+                                    </td>
+                                </tr>      
+                                <?php
+                            }
+                            ?>
                         </tbody>
                     </table>
                 </div>
