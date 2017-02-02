@@ -5,18 +5,22 @@ error_reporting(0);
 
 ?>
 
-<h3>
-    Welcome <?php echo $_SESSION["login"]["name_user"]?>
-</h3>
+<h4>
+    <i class="icon-user"></i> Welcome  <?php echo $_SESSION["login"]["name_user"]?>
+</h4>
 <div class="container-fluid">
     <div class="row-fluid">
         <ul class="quick-actions">
-            <li class="bg_lb"> <a href="#"> <i class="icon-dashboard"></i> My Dashboard </a> </li>
-            <li class="bg_lg"> <a href="#"> <i class="icon-shopping-cart"></i>Order Manager</a> </li>
-            <li class="bg_ly"> <a href="#"> <i class=" icon-globe"></i> Quotation Manager </a> </li>
-            <li class="bg_lo"> <a href="#"> <i class="icon-group"></i> Users Manager</a> </li>
-            <li class="bg_ls"> <a href="#"> <i class="icon-ok"></i>Account Manager</a> </li>
-            <li class="bg_ls"> <a href="#"> <i class="icon-signal"></i>Reports Manager</a> </li>
+            <li class="bg_lb"> <a href="index.php?requestPage=leave_apply"> <i class="icon-globe"></i> CASUAL LEAVES </a></li>
+            <li class="bg_lg"> <a href="index.php?requestPage=leave_apply"> <i class="icon-globe"></i>EARNED LEAVES</a> </li>
+            <li class="bg_ly"> <a href="index.php?requestPage=leave_apply"> <i class="icon-globe"></i>LEAVE1 </a></li>
+            <li class="bg_lo"> <a href="index.php?requestPage=leave_apply"> <i class="icon-globe"></i>LEAVE2</a></li>
+             <li class="bg_lb"> <a href="index.php?requestPage=leave_apply"> <i class="icon-globe"></i>LEAVE3</a></li>
+            <li class="bg_lg"> <a href="index.php?requestPage=leave_apply"> <i class="icon-globe"></i>COMMUTED LEAVES</a></li>
+            <li class="bg_ly"> <a href="index.php?requestPage=leave_apply"> <i class="icon-globe"></i>HALFPAY LEAVES</a></li>
+            <li class="bg_lo"> <a href="index.php?requestPage=leave_apply"> <i class="icon-globe"></i>SPECIAL LEAVES</a></li>
+            <li class="bg_lb"> <a href="index.php?requestPage=leave_apply"> <i class="icon-globe"></i>LEAVING HEADQUARTER</a></li>
+            <li class="bg_lg"> <a href="index.php?requestPage=view_apply"> <i class="icon-globe"></i>MANDATORY LEAVES</a></li>
         </ul>
     </div>
     <div class="row-fluid">

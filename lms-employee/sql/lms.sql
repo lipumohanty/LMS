@@ -139,3 +139,38 @@ INSERT INTO `tbl_predefinedleave` (`txtId`, `date_leave`, `description`) VALUES
 (2, '2017-01-29', 'sunday'),
 (3, '2017-02-05', 'sunday'),
 (4, '2017-02-11', 'second saturday');
+
+
+
+
+CREATE TABLE IF NOT EXISTS `tbl_applyleave` (
+  `txtId` int(11) NOT NULL AUTO_INCREMENT,
+  `leave_type` varchar(50) DEFAULT NULL,
+  `fromdate` date DEFAULT NULL,
+`todate` date DEFAULT NULL,
+  `no_days` int(11) DEFAULT NULL,
+`restricted_leave` varchar(50) DEFAULT NULL,
+  `date` date DEFAULT NULL,
+`leave_purpose` varchar(50) DEFAULT NULL,
+  `avail_ltc` varchar(50) DEFAULT NULL,
+`ltc_details` varchar(50) DEFAULT NULL,
+  `leave_encashment` varchar(50) DEFAULT NULL,
+`no_leaveencash` int(11) DEFAULT NULL,
+  `permission_hq` varchar(50) DEFAULT NULL,
+`datefrom` date DEFAULT NULL,
+  `dateto` date DEFAULT NULL,
+`place` date DEFAULT NULL,
+  `contact` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`txtId`)
+) 
+
+
+
+
+
+
+
+
+
+
+
