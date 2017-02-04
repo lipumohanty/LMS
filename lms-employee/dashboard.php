@@ -11,16 +11,16 @@ error_reporting(0);
 <div class="container-fluid">
     <div class="row-fluid">
         <ul class="quick-actions">
-            <li class="bg_lb"> <a href="index.php?requestPage=leave_apply"> <i class="icon-globe"></i> CASUAL LEAVES </a></li>
-            <li class="bg_lg"> <a href="index.php?requestPage=leave_apply"> <i class="icon-globe"></i>EARNED LEAVES</a> </li>
-            <li class="bg_ly"> <a href="index.php?requestPage=leave_apply"> <i class="icon-globe"></i>LEAVE1 </a></li>
-            <li class="bg_lo"> <a href="index.php?requestPage=leave_apply"> <i class="icon-globe"></i>LEAVE2</a></li>
-             <li class="bg_lb"> <a href="index.php?requestPage=leave_apply"> <i class="icon-globe"></i>LEAVE3</a></li>
-            <li class="bg_lg"> <a href="index.php?requestPage=leave_apply"> <i class="icon-globe"></i>COMMUTED LEAVES</a></li>
-            <li class="bg_ly"> <a href="index.php?requestPage=leave_apply"> <i class="icon-globe"></i>HALFPAY LEAVES</a></li>
-            <li class="bg_lo"> <a href="index.php?requestPage=leave_apply"> <i class="icon-globe"></i>SPECIAL LEAVES</a></li>
-            <li class="bg_lb"> <a href="index.php?requestPage=leave_apply"> <i class="icon-globe"></i>LEAVING HEADQUARTER</a></li>
-            <li class="bg_lg"> <a href="index.php?requestPage=view_apply"> <i class="icon-globe"></i>MANDATORY LEAVES</a></li>
+            <li class="bg_lb"> <a href="mainpage.php?requestPage=leave_apply"> <i class="icon-globe"></i>CASUAL LEAVES</a></li>
+            <li class="bg_lg"> <a href="mainpage.php?requestPage=leave_apply"> <i class="icon-globe"></i>EARNED LEAVES</a> </li>
+            <li class="bg_ly"> <a href="mainpage.php?requestPage=leave_apply"> <i class="icon-globe"></i>LEAVE1</a></li>
+            <li class="bg_lo"> <a href="mainpage.php?requestPage=leave_apply"> <i class="icon-globe"></i>LEAVE2</a></li>
+            <li class="bg_lb"> <a href="mainpage.php?requestPage=leave_apply"> <i class="icon-globe"></i>LEAVE3</a></li>
+            <li class="bg_lg"> <a href="mainpage.php?requestPage=leave_apply"> <i class="icon-globe"></i>COMMUTED LEAVES</a></li>
+            <li class="bg_ly"> <a href="mainpage.php?requestPage=leave_apply"> <i class="icon-globe"></i>HALFPAY LEAVES</a></li>
+            <li class="bg_lo"> <a href="mainpage.php?requestPage=leave_apply"> <i class="icon-globe"></i>SPECIAL LEAVES</a></li>
+            <li class="bg_lb"> <a href="mainpage.php?requestPage=leave_apply"> <i class="icon-globe"></i>LEAVING HEADQUARTER</a></li>
+            <li class="bg_lg"> <a href="mainpage.php?requestPage=view_apply"> <i class="icon-globe"></i>MANDATORY LEAVES</a></li>
         </ul>
     </div>
     <div class="row-fluid">
@@ -40,7 +40,7 @@ error_reporting(0);
                             </li>
                         </c:forEach>    
                         <li>
-                            <button class="btn btn-warning btn-mini"><a href="../<%=IServletConstant.PAGE_VIEW_ORDER %>">VIEW ALL</a> </button>
+                            <button class="btn btn-warning btn-mini"><a href="">VIEW ALL</a> </button>
                         </li>
                     </ul>
                 </div>
@@ -65,7 +65,7 @@ error_reporting(0);
                     </c:forEach>    
                     <div class="new-update clearfix">
                         <button class="btn btn-warning btn-mini">
-                            <a href="index.jsp?requestPage=view_quotation">VIEW ALL</a> 
+                            <a href="">VIEW ALL</a> 
                         </button>
                     </div> 
                 </div>

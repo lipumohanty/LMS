@@ -1,4 +1,5 @@
 <?php
+
 class MysqlConnection {
 
     /**
@@ -18,14 +19,11 @@ class MysqlConnection {
      * @param input $query
      * @return primary key for the table
      */
-   
-
     static function executeQuery($query) {
         MysqlConnection::connect();
         return mysql_query($query);
     }
 
-    
     /**
      * @param data
      * input the data for posted data
@@ -41,7 +39,7 @@ class MysqlConnection {
                 $keysset.= "`" . $key . "`,";
                 $valuesset.= "'" . trim($values) . "',";
             }
-             $query = " INSERT INTO $tbl (" . substr($keysset, 0, strlen($keysset) - 1) . ") VALUES (" . substr($valuesset, 0, strlen($valuesset) - 1) . ");";
+            $query = " INSERT INTO $tbl (" . substr($keysset, 0, strlen($keysset) - 1) . ") VALUES (" . substr($valuesset, 0, strlen($valuesset) - 1) . ");";
             MysqlConnection::executeQuery($query);
             return mysql_insert_id();
         } catch (Exception $exc) {
@@ -75,7 +73,7 @@ class MysqlConnection {
      */
     static function delete($tbl, $txtId) {
         try {
-            $query = "DELETE FROM $tbl WHERE txtId= $txtId " ;
+            $query = "DELETE FROM $tbl WHERE txtId= $txtId ";
             MysqlConnection::executeQuery($query);
         } catch (Exception $exc) {
             //echo "<span style='color:red'>SQL QUERY ERROR !!! DELETE !!!<span>";
@@ -112,7 +110,7 @@ class MysqlConnection {
      * @return type
      */
     static function fetchByPrimary($tbl, $pkvalue) {
-         $query = "SELECT * FROM $tbl WHERE txtId = $pkvalue  ";
+        $query = "SELECT * FROM $tbl WHERE txtId = $pkvalue  ";
         $resource = MysqlConnection::executeQuery($query);
         $result = MysqlConnection::toArrays($resource);
         return $result[0];
@@ -171,5 +169,14 @@ class MysqlConnection {
         fclose($handle) or die("error closing file handle");
         return $contains;
     }
+
+    /**  employee report query started *** */
+    static function pendingLeaverPerEmployee($empId) {
+        $normalleave = "SELECT * FROM `tbl_addleave`";
+        MysqlConnection::fetchCustom($normalleave);
+    }
+
+        
 }
+
 ?>
