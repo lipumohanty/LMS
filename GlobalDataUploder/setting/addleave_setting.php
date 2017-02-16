@@ -1,15 +1,11 @@
 <?php
 if (isset($_POST["submit"])) {
     
-      if (!$_POST['commuted_leave'] | !$_POST['halfpay_leave'] | !$_POST['special_leave'] | !$_POST['leaving_hq'] ) {
-
- 		die('You did not complete all of the required fields') ;
-
- 	}
+     
     unset($_POST["submit"]);
 
     MysqlConnection::insert("tbl_leavesetting", $_POST);
-     header("location:index.php?requestPage=viewaddleave_setting");
+     header("location:mainpage.php?requestPage=viewaddleave_setting");
     exit;
 }
 ?>
@@ -34,36 +30,16 @@ if (isset($_POST["submit"])) {
                                     </div>
                                 </div>
                                 <div class="span6"  style="float: left">
-                                    <label class="control-label ">COMMUTED LEAVE :</label>
+                                    <label class="control-label ">EARNED LEAVE :</label>
                                     <div class="controls">
-                                        <input type="text" name="commuted_leave" autofocus="" value="" maxlength="" class="span12"  required="" placeholder="" />
+                                        <input type="text" name="earned_leave" autofocus="" value="" maxlength="" class="span12"  required="" placeholder="" />
                                     </div>
                                 </div>
 
                             </div>
-                            <div class="span11">
-                                <div class="span6"  style="float: left">
-                                    <label class="control-label ">HALF PAY LEAVE :</label>
-                                    <div class="controls">
-                                        <input type="text" name="halfpay_leave"  value=""  maxlength="" class="span12"  required="" placeholder="" />
-                                    </div>
-                                </div>
-                                <div class="span6"  style="float: left">
-                                    <label class="control-label ">SPECIAL LEAVE: </label>
-                                    <div class="controls">
-                                        <input type="text" name="special_leave" value="" maxlength="" class="span12"   placeholder="" />
-                                    </div>
-                                </div>
-                            </div>
+                            
 
-                            <div class="span11">
-                                <div class="span6"  style="float: left">
-                                    <label class="control-label ">LEAVING OF HEADQUARTER :</label>
-                                    <div class="controls">
-                                        <input type="text" name="leaving_hq" value="" maxlength="" class="span12"   placeholder="" />
-                                    </div>
-                                </div>
-                            </div>
+                            
                         </div>
                         <div class="control-group">
                             <center>
@@ -71,8 +47,8 @@ if (isset($_POST["submit"])) {
 
                                     <a href=""><button type="submit" name="submit" class="btn btn-success">SUBMIT</button>
                                         <button type="reset" class="btn btn-primary">RESET</button>
-                                        <a href="index.php?requestPage=viewaddleave_setting"><button type="button" class="btn btn-info">VIEW</button></a>
-                                        <a href="index.php?requestPage=viewaddleave_setting"><button type="button" class="btn btn-danger">CANCEL</button></a>
+                                        <a href="mainpage.php?requestPage=viewaddleave_setting"><button type="button" class="btn btn-info">VIEW</button></a>
+                                        <a href="mainpage.php?requestPage=viewaddleave_setting"><button type="button" class="btn btn-danger">CANCEL</button></a>
                                 </div>
                             </center>
                         </div>

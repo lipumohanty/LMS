@@ -51,7 +51,7 @@ if (isset($_POST["btnSearch"])) {
                                 <center>
                                     <button type="submit" name="btnSearch" class="btn btn-success">Search</button>
                                     <button type="submit" class="btn btn-danger">Clear</button>
-                                    <a href="index.php?requestPage=addleave_setting"><button type="button" class="btn btn-info">Add</button></a>
+                                    <a href="mainpage.php?requestPage=addleave_setting"><button type="button" class="btn btn-info">Add</button></a>
                                 </center>
                             </div>
                         </div>
@@ -77,11 +77,8 @@ if (isset($_POST["btnSearch"])) {
                                 <th  style="width: 1%">#</th>
 
                                 <th>Employee Name</th>
-                                <th>Commuted Leave</th>
-                                <th>Halfpay Leave</th>
-                                <th>Special Leave</th>
-                                <th>Leaving of Headquarter</th>
-
+                                <th>Earned Leave</th>
+                                
                             </tr>
                         </thead>
                         <tbody>
@@ -91,12 +88,12 @@ if (isset($_POST["btnSearch"])) {
                                 ?>
                                 <tr class="gradeX">
                                     <td>
-                                        <a  title="EDIT" href="index.php?requestPage=editleave_setting&txtId=<?php echo $result["txtId"] ?>">
+                                        <a  title="EDIT" href="mainpage.php?requestPage=editleave_setting&txtId=<?php echo $result["txtId"] ?>">
                                             <i class="icon-pencil"></i>
                                         </a>
                                     </td>
                                     <td>
-                                        <a title="DELETE" onclick="return confirm('Are You Sure Want to delete this Record?');" href="index.php?requestPage=request_delete&tblname=tbl_leavesetting&pkvalue=<?php echo $result["txtId"] ?>&location=index.php?requestPage=viewaddleave_setting">
+                                        <a title="DELETE" onclick="return confirm('Are You Sure Want to delete this Record?');" href="mainpage.php?requestPage=request_delete&tblname=tbl_leavesetting&pkvalue=<?php echo $result["txtId"] ?>&location=mainpage.php?requestPage=viewaddleave_setting">
                                             <i class="icon-remove"></i>
                                         </a>                                  
                                     </td>                                  
@@ -107,10 +104,8 @@ if (isset($_POST["btnSearch"])) {
                                         echo $resultemp["fname"] . " " . $resultemp["lname"];
                                         ?>
                                     </td>
-                                    <td><?php echo $result["commuted_leave"] ?></td>
-                                    <td><?php echo $result["halfpay_leave"] ?></td>
-                                    <td><?php echo $result["special_leave"] ?></td>
-                                    <td><?php echo $result["leaving_hq"] ?></td>
+                                    <td><?php echo $result["earned_leave"] ?></td>
+                                    
                                 </tr>  
                                 <?php
                             }

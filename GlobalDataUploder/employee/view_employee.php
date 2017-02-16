@@ -86,7 +86,7 @@ $array_designation[11] = "Accounts Officer";
                                 <div class="form-actions right">
                                     <button type="submit" name="btnSearch" class="btn btn-success">Search</button>
                                     <button type="submit" class="btn btn-danger">Clear</button>
-                                    <a href="index.php?requestPage=add_employee"><button type="button" class="btn btn-info">Add</button></a>
+                                    <a href="mainpage.php?requestPage=add_employee"><button type="button" class="btn btn-info">Add</button></a>
                                 </div>
 
                             </center>
@@ -122,12 +122,12 @@ $array_designation[11] = "Accounts Officer";
                                     ?>
                                     <tr class="gradeX">
                                         <td>
-                                            <a title="EDIT" href="index.php?requestPage=edit_employee&txtId=<?php echo $result["txtId"] ?>">
+                                            <a title="EDIT" href="mainpage.php?requestPage=edit_employee&txtId=<?php echo $result["txtId"] ?>">
                                                 <i class="icon-pencil"></i>
                                             </a>
                                         </td>
                                         <td>
-                                            <a title="DELETE" onclick="return confirm('Are You Sure Want to delete this Record?');" href="index.php?requestPage=request_delete&tblname=tbl_employee&pkvalue=<?php echo $result["txtId"] ?>&location=index.php?requestPage=view_employee">
+                                            <a title="DELETE" onclick="return confirm('Are You Sure Want to delete this Record?');" href="mainpage.php?requestPage=request_delete&tblname=tbl_employee&pkvalue=<?php echo $result["txtId"] ?>&location=mainpage.php?requestPage=view_employee">
                                                 <i class="icon-remove"></i>
                                             </a>                                  
                                         </td>

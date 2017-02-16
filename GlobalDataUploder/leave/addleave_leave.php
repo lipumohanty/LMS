@@ -1,16 +1,12 @@
 <?php
 
 if (isset($_POST["submit"])) {
-     if (!$_POST['leave_type'] | !$_POST['description'] | !$_POST['no_count']  ) {
-
- 		die('You did not complete all of the required fields') ;
-
- 	}
+    
     unset($_POST["submit"]);
     $_POST["added_by"] = $_SESSION["login"]["name_user"];
     $_POST["added_date"] = date("y-m-d");
     MysqlConnection::insert("tbl_addleave", $_POST);
-     header("location:index.php?requestPage=viewleave_leave");
+     header("location:mainpage.php?requestPage=viewleave_leave");
 }
 ?>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
@@ -69,10 +65,10 @@ if (isset($_POST["submit"])) {
                         <div class="control-group">
                             <center>
                                 <div class="form-actions right">
-                                    <a href="index.php?requestPage=viewleave_leave"><button type="submit" name="submit" class="btn btn-success" >SUBMIT</button></a>
+                                    <a href="mainpage.php?requestPage=viewleave_leave"><button type="submit" name="submit" class="btn btn-success" >SUBMIT</button></a>
                                     <button type="reset" class="btn btn-primary">RESET</button>
-                                    <a href="index.php?requestPage=viewleave_leave"><button type="button" class="btn btn-info">VIEW</button></a>
-                                    <a href="index.php?requestPage=viewleave_leave"> <button type="button" class="btn btn-danger">CANCEL</button></a>
+                                    <a href="mainpage.php?requestPage=viewleave_leave"><button type="button" class="btn btn-info">VIEW</button></a>
+                                    <a href="mainpage.php?requestPage=viewleave_leave"> <button type="button" class="btn btn-danger">CANCEL</button></a>
                                 </div>
                             </center>
                         </div>

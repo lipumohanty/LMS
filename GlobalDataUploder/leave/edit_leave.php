@@ -3,7 +3,7 @@ $txtId = $_GET["txtId"];
 if (isset($_POST["submit"])) {
     unset($_POST["submit"]);
     MysqlConnection::edit("tbl_addleave", $_POST, $txtId);
-    header("location:index.php?requestPage=viewleave_leave");
+    header("location:mainpage.php?requestPage=viewleave_leave");
 }
 $employee = MysqlConnection::fetchByPrimary("tbl_addleave", $txtId);
 ?>

@@ -1,15 +1,11 @@
 <?php
 if (isset($_POST["submit"])) {
     
-    if (!$_POST['fname'] | !$_POST['lname'] | !$_POST['contact'] | !$_POST['email']| !$_POST['join_date']| !$_POST['designation']  ) {
-
- 		die('You did not complete all of the required fields') ;
-
- 	}
+    
     unset($_POST["submit"]);
 
     MysqlConnection::insert("tbl_employee", $_POST);
-    header("location:index.php?requestPage=view_employee");
+    header("location:mainpage.php?requestPage=view_employee");
 }
 
 $array_designation = array();
@@ -146,8 +142,8 @@ $array_designation[11] = "Accounts Officer";
 
                                     <button type="submit" name="submit" class="btn btn-success">SUBMIT</button>
                                     <button type="reset" name="reset" class="btn btn-primary">RESET</button>
-                                    <a href="index.php?requestPage=view_employee"><button type="button" class="btn btn-info">VIEW</button></a>
-                                    <a href="index.php?requestPage=view_employee">  <button type="button" class="btn btn-danger">CANCEL</button></a>
+                                    <a href="mainpage.php?requestPage=view_employee"><button type="button" class="btn btn-info">VIEW</button></a>
+                                    <a href="mainpage.php?requestPage=view_employee">  <button type="button" class="btn btn-danger">CANCEL</button></a>
                                 </div>
                             </center>
                         </div>

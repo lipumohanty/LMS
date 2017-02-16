@@ -3,7 +3,7 @@ $txtId = $_GET["txtId"];
 if (isset($_POST["submit"])) {
     unset($_POST["submit"]);
     MysqlConnection::edit("tbl_employee", $_POST, $txtId);
-    header("location:index.php?requestPage=view_employee");
+    header("location:mainpage.php?requestPage=view_employee");
 }
 $employee = MysqlConnection::fetchByPrimary("tbl_employee", $txtId);
 ?>

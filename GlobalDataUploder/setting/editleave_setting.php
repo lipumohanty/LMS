@@ -3,7 +3,7 @@ $txtId = $_GET["txtId"];
 if (isset($_POST["submit"])) {
     unset($_POST["submit"]);
     MysqlConnection::edit("tbl_leavesetting", $_POST, $txtId);
-    header("location:index.php?requestPage=viewaddleave_setting");
+    header("location:mainpage.php?requestPage=viewaddleave_setting");
 }
 $employee = MysqlConnection::fetchByPrimary("tbl_leavesetting", $txtId);
 ?>

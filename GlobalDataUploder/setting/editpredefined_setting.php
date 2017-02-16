@@ -3,7 +3,7 @@ $txtId = $_GET["txtId"];
 if (isset($_POST["submit"])) {
     unset($_POST["submit"]);
     MysqlConnection::edit("tbl_predefinedleave", $_POST, $txtId);
-    header("location:index.php?requestPage=viewpredefined_setting");
+    header("location:mainpage.php?requestPage=viewpredefined_setting");
 }
 $employee = MysqlConnection::fetchByPrimary("tbl_predefinedleave", $txtId);
 ?>

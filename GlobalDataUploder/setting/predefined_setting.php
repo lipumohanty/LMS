@@ -1,15 +1,11 @@
 <?php
 if (isset($_POST["submit"])) {
     
-      if (!$_POST['date_leave'] | !$_POST['name'] | !$_POST['description']  ) {
-
- 		die('You did not complete all of the required fields') ;
-
- 	}
+     
     unset($_POST["submit"]);
 
     MysqlConnection::insert("tbl_predefinedleave", $_POST);
-     header("location:index.php?requestPage=viewpredefined_setting");
+     header("location:mainpage.php?requestPage=viewpredefined_setting");
     exit;
 }
 ?>
@@ -62,8 +58,8 @@ if (isset($_POST["submit"])) {
                                     <div class="form-actions right">
                                         <a href=""><button type="submit" name="submit" class="btn btn-success">SUBMIT</button>
                                             <button type="reset" class="btn btn-primary">RESET</button>
-                                            <a href="index.php?requestPage=viewpredefined_setting"><button type="button" class="btn btn-info">VIEW</button></a>
-                                            <a href="index.php?requestPage=viewpredefined_setting"><button type="button" class="btn btn-danger">CANCEL</button></a>
+                                            <a href="mainpage.php?requestPage=viewpredefined_setting"><button type="button" class="btn btn-info">VIEW</button></a>
+                                            <a href="mainpage.php?requestPage=viewpredefined_setting"><button type="button" class="btn btn-danger">CANCEL</button></a>
                                     </div>
                                 </center>
                             </div>
