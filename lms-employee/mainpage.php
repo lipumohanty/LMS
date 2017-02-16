@@ -38,15 +38,16 @@ include './service/UtilService.php';
         }
     </style>
     <body>
-        <div id="header"><h1><a href="index.jsp?requestPage=">CUSTOM</a></h1></div>
+        <div id="header"><h1><a href="mainpage.php?requestPage=">CUSTOM</a></h1></div>
         <div id="user-nav" class="navbar navbar-inverse"><?php include './topnavigation.php'; ?></div>
         <div id="sidebar"><?php include './navigation.php'; ?></div>
         <div id="content">
             <div id="content-header">
                 <div id="breadcrumb"> 
-                    <a href="index.jsp?requestPage=" title="Dashboard" class="tip-bottom"><i class="icon-home"></i> HOME</a> 
-                    <a href="#" class="current"></a> 
-                    <a href="#" class="current">APPLY LEAVE USER</a> 
+                    <a href="mainpage.php?requestPage=" title="Dashboard" class="tip-bottom"><i class="icon-home"></i> HOME</a> 
+                    <a href="#" class="tip-bottom">APPLIED HISTORY</a> 
+                    <a href="#" class="current">STATUS</a>
+                    <a href="#" class="tip-bottom">LOGOUT</a>
                 </div>
             </div>
             <?php include ''.  UtilService::getIncludePage(filter_input(INPUT_GET, "requestPage")).".php" ; ?>

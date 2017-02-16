@@ -61,8 +61,8 @@ if (isset($_POST["btnSearch"])) {
                             <div class="span11" style="clear: both "></div>
                             <div class="controls">
                                 <center>
-                                    <a href="index.php?requestPage=leave_apply"><button type="button" class="btn btn-info">APPLY LEAVE</button></a>
-                                     <a href="index.php?requestPage=dashboard"><button type="button" class="btn btn-success">BACK</button></a>
+                                    <a href="mainpage.php?requestPage=leave_apply"><button type="button" class="btn btn-info">APPLY LEAVE</button></a>
+                                     <a href="mainpage.php?requestPage=dashboard"><button type="button" class="btn btn-success">BACK</button></a>
                                 </center>
                             </div>
                     </form>

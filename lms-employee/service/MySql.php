@@ -39,7 +39,7 @@ class MysqlConnection {
                 $keysset.= "`" . $key . "`,";
                 $valuesset.= "'" . trim($values) . "',";
             }
-            $query = " INSERT INTO $tbl (" . substr($keysset, 0, strlen($keysset) - 1) . ") VALUES (" . substr($valuesset, 0, strlen($valuesset) - 1) . ");";
+           echo $query = " INSERT INTO $tbl (" . substr($keysset, 0, strlen($keysset) - 1) . ") VALUES (" . substr($valuesset, 0, strlen($valuesset) - 1) . ");";
             MysqlConnection::executeQuery($query);
             return mysql_insert_id();
         } catch (Exception $exc) {
@@ -59,7 +59,7 @@ class MysqlConnection {
             foreach ($data as $key => $values) {
                 $update.= "`" . $key . "` = " . "'" . trim($values) . "',";
             }
-            $query = " UPDATE $tbl SET " . substr($update, 0, strlen($update) - 1) . " WHERE txtId = $pkcolumn; ";
+           echo $query = " UPDATE $tbl SET " . substr($update, 0, strlen($update) - 1) . " WHERE txtId = $pkcolumn; ";
             return MysqlConnection::executeQuery($query);
         } catch (Exception $exc) {
             echo "<span style='color:red'>SQL QUERY ERROR !!! EDIT !!!<span>";

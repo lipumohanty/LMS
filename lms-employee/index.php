@@ -7,19 +7,21 @@ include './service/UtilService.php';
 if (isset($_POST["submit"])) {
     unset($_POST["submit"]);
 
-    $username = $_POST["username"];
+    $email = $_POST["email"];
     $password = $_POST["password"];
 
-    $sqlSelect = "SELECT * FROM tbl_employee WHERE username='" . $username . "' and password= '" . $password . "' ";
+    $sqlSelect = "SELECT * FROM tbl_employee WHERE email ='" . $email . "' and password= '" . $password . "' ";
     $result = MysqlConnection::fetchCustom($sqlSelect);
 
     if (count($result) != 0) {
-        $login = $result[0];
-        $_SESSION["loginuser"] = $login;
-        $user_type = $login["type"];
-        if ($user_type == 2) {
+        $email = $result[0];
+        $_SESSION["email"] = $email;
+        $type = $email["type"];
+       if ($type == 1) {
             header("location:mainpage.php?requestPage=");
-        } 
+        } else {
+            header("location:mainpage.php?requestPage=");
+        }
     } else {
         $message = "error";
     }
@@ -47,7 +49,7 @@ if (isset($_POST["submit"])) {
                 <div class="control-group">
                     <div class="controls">
                         <div class="main_input_box">
-                            <span class="add-on bg_lg"><i class="icon-user"></i></span><input type="text" name="username" autofocus="" maxlength="30px;" placeholder="Username" />
+                            <span class="add-on bg_lg"><i class="icon-user"></i></span><input type="text" name="email" autofocus="" maxlength="30px;" placeholder="Username" />
                         </div>
                     </div>
                 </div>

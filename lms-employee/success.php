@@ -4,5 +4,5 @@ echo 'succesfully registered';
 ?>
 <html>
    
-    <a href="index.php">Back</a>
+    <a href="mainpage.php">Back</a>
 </html>
