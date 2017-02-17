@@ -1,10 +1,10 @@
 <?php
-$type = $_GET["type"];
+$type = str_replace("_", " ", $_GET["type"]);
 if (isset($_POST["submit"])) {
     
     unset($_POST["submit"]);
     $_POST["empId"] = $_SESSION["email"]["txtId"];
-    if($type == "casual_leave" || $type=="earned_leave"){
+    if($type == "casual leave" || $type=="earned leave"){
         $_POST["leave_type"] = $type;
     }else{
         $_POST["leave_type"] = $type;

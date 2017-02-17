@@ -23,7 +23,7 @@ if (isset($_POST["submit"])) {
             header("location:mainpage.php?requestPage=");
         }
     } else {
-        $message = "error";
+        $message = "Invalid UserName And Password!!";
     }
 }
 ?>

@@ -2,11 +2,11 @@
 <?php
 //session_start();
 $empId = $_SESSION["email"]["txtId"];
-error_reporting(E_ALL);
+error_reporting(0);
 MysqlConnection::connect();
 $resource = MysqlConnection::fetchAll("tbl_predefinedleave");
-$earnedcounter = calculateEarnedleave($empId, "earned_leave");
-$casualcounter = calculateCasualeave($empId, "casual_leave");
+$earnedcounter = calculateEarnedleave($empId, "earned leave");
+$casualcounter = calculateCasualeave($empId, "casual leave");
 ?>
 
 <!--<h4>
@@ -73,7 +73,7 @@ $casualcounter = calculateCasualeave($empId, "casual_leave");
 
                             <tbody>
                                 <?php
-                                $resource1 = MysqlConnection::fetchAll("tbl_applyleave");
+                                $resource1 = MysqlConnection::fetchAll("tbl_leavehistory");
 
                                 foreach ($resource1 as $result1) {
                                     ?>
@@ -104,13 +104,13 @@ $casualcounter = calculateCasualeave($empId, "casual_leave");
 <?php
 
 function calculateEarnedleave($empId, $type) {
-    $sql = "SELECT SUM( `approved_leave` ) AS balance FROM `tbl_applyleave` WHERE `empId` = $empId AND `leave_type` = '$type'";
+    $sql = "SELECT SUM( `approved_leave` ) AS balance FROM `tbl_leavehistory` WHERE `empId` = $empId AND `leave_type` = '$type'";
     $fectch = MysqlConnection::fetchCustom($sql);
     return $fectch[0]["balance"];
 }
 
 function calculateCasualeave($empId, $type) {
-    $sql = "SELECT SUM( `approved_leave` ) AS balance FROM `tbl_applyleave` WHERE `empId` = $empId AND `leave_type` = '$type'";
+    $sql = "SELECT SUM( `approved_leave` ) AS balance FROM `tbl_leavehistory` WHERE `empId` = $empId AND `leave_type` = '$type'";
     $fectch = MysqlConnection::fetchCustom($sql);
     return $fectch[0]["balance"];
 }
