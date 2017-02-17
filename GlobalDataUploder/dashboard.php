@@ -2,7 +2,7 @@
 <?php
 //session_start();
 $empId = $_SESSION["email"]["txtId"];
-error_reporting(E_ALL);
+error_reporting(0);
 MysqlConnection::connect();
 $resource = MysqlConnection::fetchAll("tbl_predefinedleave");
  $earnedcounter  = calculateEarnedleave($empId, "earned_leave");

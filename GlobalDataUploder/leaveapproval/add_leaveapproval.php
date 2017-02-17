@@ -129,10 +129,10 @@ function getEmployeeById($empId) {
 }
 
 function getAvailableLeave($type, $empId) {
-    if ($type == "casual_leave") {
+    if ($type == "casual leave") {
         $result = MysqlConnection::fetchCustom("SELECT no_count FROM `tbl_addleave`");
         return $result[0]["no_count"];
-    } else if ($type == "earned_leave") {
+    } else if ($type == "earned leave") {
         $result = MysqlConnection::fetchCustom("SELECT earned_leave FROM `tbl_leavesetting`");
         return $result[0]["earned_leave"];
     } else {

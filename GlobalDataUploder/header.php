@@ -1,4 +1,5 @@
-<title>Global Data Uploder</title>
+<title>National Highways Authority of India</title>
+<link rel="Icon" type="image/jpg" href="img/nhainew.jpg">
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" href="css/bootstrap.min.css" />
