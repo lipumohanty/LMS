@@ -2,7 +2,6 @@
 session_start();
 ob_start();
 error_reporting(0);
-
 include './service/MySql.php';
 include './service/UtilService.php';
 if (isset($_POST["submit"])) {

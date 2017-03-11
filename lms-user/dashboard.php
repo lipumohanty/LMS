@@ -7,6 +7,7 @@ error_reporting(0);
 MysqlConnection::connect();
 $resource = MysqlConnection::fetchAll("tbl_predefinedleave");
 $getCurretLeavesByEmployee =getCurretLeavesByEmployee($empId);
+$casualcounter = calculateCasualeave($empId, "casual leave");
 
 ?>
 
@@ -17,9 +18,10 @@ $getCurretLeavesByEmployee =getCurretLeavesByEmployee($empId);
     <div class="quick-actions_homepage">
         <ul class="quick-actions">
             <li class="bg_lb"> <a href=""> <i class="icon-dashboard"></i>  My Dashboard </a> </li>
-            <li class="bg_lg"> <a href="mainpage.php?requestPage=applystep1_apply&type=casual_leave"  ><i class="icon-globe"></i> <span class="label label-important"></span>Apply for casual leave</a></li>
+            <li class="bg_lg"> <a href="mainpage.php?requestPage=applystep1_apply&type=casual_leave"  ><i class="icon-globe"></i> <span class="label label-important"><?php echo $casualcounter ?></span>Apply for casual leave</a></li>
            <li class="bg_lo"> <a href="mainpage.php?requestPage=userreg_apply&txtId=<?php echo $empId ?>"> <i class="icon-group"></i> Users Manager</a> </li>
-            <li class="bg_ls"> <a href="mainpage.php?requestPage="> <i class="icon-ok"></i>Status Manager</a> </li>
+            <li class="bg_ls"> <a href="mainpage.php?requestPage=history_apply&empId=<?php echo $empId ?>"> <i class="icon-ok"></i>Status Manager</a> </li>
+            <li class="bg_lb"> <a href=""> <i class="icon-signout"></i> LogOut </a> </li>
         </ul>
     </div>
     <div class="row-fluid">
@@ -61,43 +63,7 @@ $getCurretLeavesByEmployee =getCurretLeavesByEmployee($empId);
 
                 </div>
             </div>
-            <div class="widget-box">
-          <div class="widget-title bg_lo"  data-toggle="collapse" href="#collapseG3" > <span class="icon"> <i class="icon-chevron-down"></i> </span>
-            <h5>LAST 5 APPLY</h5>
-          </div>
-           <div class="widget-content nopadding collapse in" id="collapseG1">
-                    <ul class="recent-posts">
-                        <table class="table data-table" style="font-size: 11px;">
-
-                            <tbody>
-                                <?php
-                               
-                                foreach ($getCurretLeavesByEmployee as $result) {
-                                    ?>
-                                    <tr class="gradeX">
-
-
-                                        <td><?php
-                                            $resultemp = MysqlConnection::fetchAll("tbl_employeenew");
-                                            $resultemp = getEmployeeById($result["empId"]);
-                                            echo $resultemp["name"];
-                                            ?> &nbsp;&nbsp;( <?php echo $result["leave_type"] ?> ) &nbsp;&nbsp;( <?php echo $result["applieddate"] ?> )&nbsp;&nbsp;( <?php echo $result["no_days"] ?> )&nbsp;&nbsp;( <?php echo $result["status"] ?> )</td>
-
-
-                                    </tr>  
-                                    <?php
-                                }
-                                ?>
-
-                            </tbody>
-                        </table>
-                        <div class="new-update clearfix">
-                            <button class="btn btn-warning btn-mini">
-                                <a href="">VIEW ALL</a> 
-                            </button>
-                        </div> 
-                </div>
-        </div>
+            
 
         </div>
         <div class="span6">
@@ -115,6 +81,43 @@ $getCurretLeavesByEmployee =getCurretLeavesByEmployee($empId);
             
             </ul>
           </div>
+        </div>
+            <div class="widget-box">
+          <div class="widget-title bg_lo"  data-toggle="collapse" href="#collapseG3" > <span class="icon"> <i class="icon-chevron-down"></i> </span>
+            <h5>LAST 5 APPLY</h5>
+          </div>
+           <div class="widget-content nopadding collapse in" id="collapseG1">
+                    <ul class="recent-posts">
+                        <table class="table data-table" style="font-size: 11px;">
+
+                            <tbody>
+                                <?php
+                               
+                                foreach ($getCurretLeavesByEmployee as $result) {
+                                    ?>
+                                    <tr class="gradeX">
+
+
+                                        <td> Applied on(<?php echo $result["applieddate"] ?>) &nbsp;-&nbsp;<?php
+                                            $resultemp = MysqlConnection::fetchAll("tbl_employeenew");
+                                            $resultemp = getEmployeeById($result["empId"]);
+                                            echo $resultemp["name"];
+                                            ?> &nbsp;&nbsp;( <?php echo $result["leave_type"] ?> ) &nbsp;&nbsp;( <?php echo $result["no_days"] ?> )&nbsp;&nbsp;( <?php echo $result["status"] ?> )</td>
+
+
+                                    </tr>  
+                                    <?php
+                                }
+                                ?>
+
+                            </tbody>
+                        </table>
+                        <div class="new-update clearfix">
+                            <button class="btn btn-warning btn-mini">
+                                <a href="">VIEW ALL</a> 
+                            </button>
+                        </div> 
+                </div>
         </div>
         
       </div>
@@ -136,5 +139,11 @@ function getEmployeeById($empId) {
 
     $result = MysqlConnection::fetchByPrimary("tbl_employeenew", $empId);
     return($result);
+}
+
+function calculateCasualeave($empId, $type) {
+    $sql = "SELECT  `balanceLeave`  AS balance FROM `tbl_applyleavenew` WHERE `empId` = $empId AND `leave_type` = '$type'";
+    $fectch = MysqlConnection::fetchCustom($sql);
+    return $fectch[0]["balance"];
 }
 ?>

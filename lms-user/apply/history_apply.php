@@ -15,7 +15,7 @@ $getCurretLeavesByEmployee = getCurretLeavesByEmployee($empId);
                         <h5>YOUR LEAVE RECORD</h5>
                     </div>
                     <div class="widget-content nopadding">
-                        <table class="table table-bordered data-table"  style="font-size: 11px;">
+                        <table class="table table-bordered data-table "  style="font-size: 11px;">
                             <thead>
                                 <tr>
                                     <th>Application Date</th>
@@ -25,9 +25,7 @@ $getCurretLeavesByEmployee = getCurretLeavesByEmployee($empId);
                                     <th>To</th>
                                     <th>No of Days</th>
                                      <th>Purpose of Leave</th>
-                                     <th>Address</th>
-                                    <th>Place of Visit</th>
-                                    <th>Mobile No</th>
+                                     
                                     <th>Status</th>
                                     <th>Remark</th>
                                 
@@ -51,9 +49,7 @@ $getCurretLeavesByEmployee = getCurretLeavesByEmployee($empId);
                                         <td><?php echo $result["todate"] ?></td>
                                         <td><?php echo $result["no_days"] ?></td>
                                         <td><?php echo $result["purpose"] ?></td>
-                                        <td><?php echo $result["address"] ?></td>
-                                        <td><?php echo $result["city"] ?></td>
-                                        <td><?php echo $result["mobile"] ?></td>
+                                        
                                          <td><?php echo $result["status"] ?></td>
                                           <td><?php echo $result["reason"] ?></td>
                                       

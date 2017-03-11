@@ -31,12 +31,12 @@ if (isset($_POST["submit"])) {
     <div class="row-fluid">
         <div class="span12">
             <div class="widget-box">
-                <div class="widget-title"> <span class="icon"> <i class="icon-user"></i></span><h5 style="color: green">APLLY LEAVE- STEP 1</h5></div>
+                <div class="widget-title"> <span class="icon"> <i class="icon-user"></i></span><h5 style="color: green">APPLY LEAVE- STEP 1</h5></div>
                 <form class="form-horizontal" method="post" action="" name="" id="" novalidate="novalidate">
                     <div class="control-group" style="background-color: white;">
                         <div class="span11" style="clear: both "></div>
 
-                        <div class="span11">
+                       <div class="span11">
                             <div class="span11"  style="float: left">
                                 <label class="control-group ">WHETHER THERE IS ANY PROPOSAL TO AVAIL LTC DURING THE PERIOD OF LEAVE:</label>
                                 <div class="controls">
@@ -73,7 +73,7 @@ if (isset($_POST["submit"])) {
         }
         $("#avail_ltc").change(function () {
             if ($(this).val() == "yes") {
-                alert("online application cannot be made");
+                alert("online application cannot be made....kindly submit Your application Manual");
                 $("#submit").button("disable")
             }
             else {
@@ -82,3 +82,6 @@ if (isset($_POST["submit"])) {
         });
     });
 </script>
+
+
+
