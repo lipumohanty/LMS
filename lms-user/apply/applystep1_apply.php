@@ -3,15 +3,14 @@ error_reporting(0);
 $type = str_replace("_", " ", $_GET["type"]);
 $_SESSION["typesession"] = $_GET["type"];
 if (isset($_POST["submit"])) {
-
-    if ($_POST["avail_ltc"] == "") {
-        $error = "Enter All fields";
+    if (strtolower($_POST["proposal"]) == "yes") {
+        $boolen = "invalid";
     } else {
+        $boolen = "";
         unset($_POST["submit"]);
+        unset($_POST["proposal"]);
         $_POST["empId"] = $_SESSION["email"]["txtId"];
-
         $_POST["applieddate"] = date("Y-m-d");
-
         if ($type == "casual leave") {
             $_POST["leave_type"] = $type;
         } else {
@@ -36,10 +35,9 @@ if (isset($_POST["submit"])) {
                     <div class="control-group" style="background-color: white;">
                         <br/>
                         <div >
-                            <div class="controls">
-                                WHETHER THERE IS ANY PROPOSAL TO AVAIL LTC DURING THE PERIOD OF LEAVE:
+                            <div class="controls" style="text-transform: capitalize">
+                                whether there is any proposal to avail ltc during the period of leave :&nbsp;&nbsp;
                                 <select name="proposal" id="proposal"  >
-                                    <option value="">Select</option>
                                     <option value="yes">Yes</option>
                                     <option value="no">No</option>
                                 </select>
@@ -47,8 +45,15 @@ if (isset($_POST["submit"])) {
 
                             <div class="control-group">
                                 <center>
+                                    <?php
+                                    if ($boolen != "") {
+                                        echo "<br/>";
+                                        echo "<p style='color:red'>Online application cannot be made....kindly submit Your application Manual</p>";
+                                        echo "<br/>";
+                                    }
+                                    ?>
                                     <div class="form-actions right">
-                                        <input type="submit" name="submit" onclick="return  validateLeaveRequest()" class="btn btn-success" value="NEXT" >
+                                        <input type="submit" name="submit" class="btn btn-success" value="NEXT" >
                                     </div>
                                 </center>
                             </div>
@@ -59,20 +64,3 @@ if (isset($_POST["submit"])) {
         </div>
     </div>
 </div>
-<script type="text/javascript">
-    function validateLeaveRequest() {
-        var proposal = document.getElementById("proposal").value;
-        if (proposal === "yes" && proposal === '') {
-            alert("Online application cannot be made....kindly submit Your application Manual");
-            return false;
-        } else {
-            document.frmNext.action = "mainpage.php?requestPage=applystep2_apply";
-            document.frmNext.submit();
-            return true;
-        }
-        return false;
-    }
-</script>
-
-
-

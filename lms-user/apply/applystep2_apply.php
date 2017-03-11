@@ -1,9 +1,11 @@
 <?php
 $typesession = $_SESSION["typesession"];
 $nextId = $_GET["nextId"];
+$empId = $_SESSION["email"]["txtId"];
+$sqlbalaneleave = "SELECT balanceLeave FROM `tbl_applyleavenew` WHERE `empId` = $empId";
+$sqlbalresult = MysqlConnection::fetchCustom($sqlbalaneleave);
+$balaneleave = $sqlbalresult[0]["balanceLeave"];
 
-
-$isCalculation = false;
 if (isset($_POST["brnCheack"])) {
     $fromDate = $_POST["fromdate"];
     $todate = $_POST["todate"];
@@ -32,16 +34,17 @@ if (isset($_POST["brnCheack"])) {
             $isWeekend++;
         }
     }
-    //$mandTypeStr = implode(" ",$mandType);
     $finalCounter = count($listDate) - ($mandLeave + $isWeekend);
 }
-
+if ($finalCounter > $balaneleave && $balaneleave != 0) {
+    $errorleave = "<p style='color:red'>No of days applied exceed limit !!!</p>";
+} else {
+    $errorleave = "";
+}
 
 if (isset($_POST["submit"])) {
-
     unset($_POST["submit"]);
     $_POST["empId"] = $_SESSION["email"]["txtId"];
-    //$_POST["leaveId"] = date("y-m-d");
     $_POST["txtId"] = $nextId;
     MysqlConnection::edit("tbl_leavehistorynew", $_POST, $nextId);
     header("location:mainpage.php?requestPage=applystephq_apply&nextId=$nextId");
@@ -83,7 +86,6 @@ function isWeekend($date) {
                                         <input type="text" name="fromdate" id="fromdate" value="<?php echo $fromDate ?>" maxlength="10" minlength="1" class="span12"   placeholder="yyyy-mm-dd" required="true"><span class="add-on"><i class="icon-th"></i></span>
                                     </div>
                                 </div>
-
                                 <label class="control-label ">TO:</label>
                                 <div class="controls">
                                     <div  data-date="12-02-2012" class="input-append date datepicker">
@@ -136,10 +138,14 @@ function isWeekend($date) {
                                                             <tbody>
                                                                 <?php
                                                                 $srno = 1;
+                                                                $restricted = 0;
                                                                 foreach ($mandType as $result) {
                                                                     if ($result["date_leave"] != "") {
+                                                                        if (strtolower($result["name"]) == "restricted holiday") {
+                                                                            $restricted++;
+                                                                        }
                                                                         ?>
-                                                                        <tr class="gradeX">
+                                                                        <tr class="gradeX" style="background-color: white">
                                                                             <td style="color:MediumBlue "><?php echo $srno ?></td>
                                                                             <td style="color:MediumBlue "><?php echo $result["date_leave"] ?></td>
                                                                             <td style="color:DarkCyan "><?php echo $result["name"] ?></td>
@@ -179,10 +185,21 @@ function isWeekend($date) {
 
                                     <center>
                                         <div class="form-actions right">
-                                            <input type="submit" name="submit" class="btn btn-success" value="NEXT" >
-                                            <button type="reset" class="btn btn-primary">RESET</button>
-                                            <a href="mainpage.php?requestPage=view_apply"><button type="button" class="btn btn-info">VIEW</button></a>
-                                            <a href="mainpage.php?requestPage=view_apply"> <button type="button" class="btn btn-danger">CANCEL</button></a>
+
+                                            <?php
+                                            if ($errorleave != "") {
+                                                echo $errorleave;
+                                            } else {
+                                                ?>
+                                                <input type="hidden" name="restricted" class="btn btn-success" value="<?php echo $restricted ?>" >
+                                                <input type="submit" name="submit" class="btn btn-success" value="NEXT" >
+                                                <button type="reset" class="btn btn-primary">RESET</button>
+                                                <a href="mainpage.php?requestPage=view_apply"><button type="button" class="btn btn-info">VIEW</button></a>
+                                                <a href="mainpage.php?requestPage=view_apply"> <button type="button" class="btn btn-danger">CANCEL</button></a>
+                                                <?php
+                                            }
+                                            ?>
+
                                         </div>
                                     </center>
                                     <?php
@@ -196,32 +213,12 @@ function isWeekend($date) {
         </div>
     </div>
 </div>
-<script language="JavaScript" type="text/javascript">
-    // To calulate difference b/w two dates
-    //    function CalculateDiff(oriNo) {
-    //        var From_date = new Date($("#fromdate").val());
-    //        var To_date = new Date($("#todate").val());
-    //        var diff_date = To_date - From_date;
-    //        var days = Math.floor(((diff_date % 31536000000) % 2628000000) / 86400000);
-    //
-    //        if (parseInt(oriNo) < parseInt(days)) {
-    //            alert("restrict fields");
-    //        } else {
-    //            document.getElementById("no_days").value = parseInt(days) + 1;
-    //        }
-    //
-    //    }
-</script>
-
-
 <?php
 
 function getCalculate() {
     $begin = new DateTime('2013-02-01');
     $end = new DateTime('2013-02-13');
-
     $daterange = new DatePeriod($begin, new DateInterval('P1D'), $end);
-
     foreach ($daterange as $date) {
         echo $date->format("Y-m-d") . "<br>";
     }
@@ -250,22 +247,3 @@ function createDateRangeArray($strDateFrom, $strDateTo) {
     return $aryRange;
 }
 ?>
-//<script type="text/javascript">
-    //  $(document).ready(function () {
-    //    $("#submit").button({icons: {secondary: "ui-icon-info"}});
-    //  $("#no_days").addClass("ui-state-default ui-corner-all");
-    //var demoSelectValue = $("#no_days").val();
-    //if (demoSelectValue == "") {
-    //  $("#submit").button("disable")
-    // }
-    //$("#no_days").change(function () {
-    //  if ($(this).val() == "(parseInt(no_days) > parseInt(balanceLeave))") {
-    //    alert("No of Days Exceed Limit...kindly recheck and apply");
-    //  $("#submit").button("disable")
-    // }
-    //else {
-    //  $("#submit").button("enable")
-    // }
-    //  });
-    //  });
-//</script>
