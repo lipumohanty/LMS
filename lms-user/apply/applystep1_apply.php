@@ -32,30 +32,26 @@ if (isset($_POST["submit"])) {
         <div class="span12">
             <div class="widget-box">
                 <div class="widget-title"> <span class="icon"> <i class="icon-user"></i></span><h5 style="color: green">APPLY LEAVE- STEP 1</h5></div>
-                <form class="form-horizontal" method="post" action="" name="" id="" novalidate="novalidate">
+                <form class="form-horizontal" method="post" action="" name="frmNext" id="" novalidate="novalidate">
                     <div class="control-group" style="background-color: white;">
-                        <div class="span11" style="clear: both "></div>
-
-                       <div class="span11">
-                            <div class="span11"  style="float: left">
-                                <label class="control-group ">WHETHER THERE IS ANY PROPOSAL TO AVAIL LTC DURING THE PERIOD OF LEAVE:</label>
-                                <div class="controls">
-                                    <select class="span8" id="avail_ltc" name="avail_ltc"  >
-                                        <option value="">Select</option>
-                                        <option value="yes">Yes</option>
-                                        <option value="no">No</option>
-                                    </select>
-                                </div>
+                        <br/>
+                        <div >
+                            <div class="controls">
+                                WHETHER THERE IS ANY PROPOSAL TO AVAIL LTC DURING THE PERIOD OF LEAVE:
+                                <select name="proposal" id="proposal"  >
+                                    <option value="">Select</option>
+                                    <option value="yes">Yes</option>
+                                    <option value="no">No</option>
+                                </select>
                             </div>
-                        </div>
 
-                        <div class="control-group">
-                            <center>
-                                <div class="form-actions right">
-                                    <input type="submit" name="submit" id="submit" class="btn btn-success" value="NEXT">
-
-                                </div>
-                            </center>
+                            <div class="control-group">
+                                <center>
+                                    <div class="form-actions right">
+                                        <input type="submit" name="submit" onclick="return  validateLeaveRequest()" class="btn btn-success" value="NEXT" >
+                                    </div>
+                                </center>
+                            </div>
                         </div>
                     </div>
                 </form>
@@ -64,23 +60,18 @@ if (isset($_POST["submit"])) {
     </div>
 </div>
 <script type="text/javascript">
-    $(document).ready(function () {
-        $("#submit").button({icons: {secondary: "ui-icon-info"}});
-        $("#avail_ltc").addClass("ui-state-default ui-corner-all");
-        var demoSelectValue = $("#avail_ltc").val();
-        if (demoSelectValue == "") {
-            $("#submit").button("disable")
+    function validateLeaveRequest() {
+        var proposal = document.getElementById("proposal").value;
+        if (proposal === "yes" && proposal === '') {
+            alert("Online application cannot be made....kindly submit Your application Manual");
+            return false;
+        } else {
+            document.frmNext.action = "mainpage.php?requestPage=applystep2_apply";
+            document.frmNext.submit();
+            return true;
         }
-        $("#avail_ltc").change(function () {
-            if ($(this).val() == "yes") {
-                alert("online application cannot be made....kindly submit Your application Manual");
-                $("#submit").button("disable")
-            }
-            else {
-                $("#submit").button("enable")
-            }
-        });
-    });
+        return false;
+    }
 </script>
 
 

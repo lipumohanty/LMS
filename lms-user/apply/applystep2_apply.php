@@ -1,10 +1,10 @@
 <?php
 $typesession = $_SESSION["typesession"];
 $nextId = $_GET["nextId"];
-   
 
-       $isCalculation = false;
-     if (isset($_POST["brnCheack"])) {
+
+$isCalculation = false;
+if (isset($_POST["brnCheack"])) {
     $fromDate = $_POST["fromdate"];
     $todate = $_POST["todate"];
 
@@ -13,27 +13,26 @@ $nextId = $_GET["nextId"];
     $mandLeave = 0;
     $mandType[] = array();
     $isWeekEnd = 0;
-	
+
     foreach ($listDate as $value) {
         $sqlmandeotry = "SELECT *  FROM  `tbl_predefinedleave` where date_leave = '$value' ";
         $sqlmandetoryresult = MysqlConnection::fetchCustom($sqlmandeotry);
-		foreach($sqlmandetoryresult as $leaves){
-		if(!empty($leaves["name"])){
-			$mandType[] = $leaves;
-		}
-		     	 
-		}
+        foreach ($sqlmandetoryresult as $leaves) {
+            if (!empty($leaves["name"])) {
+                $mandType[] = $leaves;
+            }
+        }
         $mandLeave = $mandLeave + count($sqlmandetoryresult);
         if (isWeekend($value)) {
-             $weekend = array();
-             $weekend["date_leave"] = $value;
-             $weekend["name"] = "Weekend";
-             $weekend["description"] = "Weekend";
-             $mandType[] = $weekend;
+            $weekend = array();
+            $weekend["date_leave"] = $value;
+            $weekend["name"] = "Weekend";
+            $weekend["description"] = "Weekend";
+            $mandType[] = $weekend;
             $isWeekend++;
         }
     }
-	//$mandTypeStr = implode(" ",$mandType);
+    //$mandTypeStr = implode(" ",$mandType);
     $finalCounter = count($listDate) - ($mandLeave + $isWeekend);
 }
 
@@ -56,10 +55,10 @@ function isWeekend($date) {
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
-    $(function() {
+    $(function () {
         $("#fromdate").datepicker({dateFormat: 'yy-mm-dd', minDate: 0});
     });
-    $(function() {
+    $(function () {
         $("#todate").datepicker({dateFormat: 'yy-mm-dd', minDate: 0});
         CalculateDiff('');
     });
@@ -92,9 +91,9 @@ function isWeekend($date) {
                                     </div>
                                 </div>
                                 <div class="span11"  style="float: left">
-                              
-                                <label class="control-group "><p style="color: red"><?php echo $error ?></p></label>
-                            </div>
+
+                                    <label class="control-group "><p style="color: red"><?php echo $error ?></p></label>
+                                </div>
                                 <div class="controls">
                                     <input type="submit" name="brnCheack" class="btn btn-success" value="Check For Availability" >
                                 </div>
@@ -107,7 +106,7 @@ function isWeekend($date) {
                                     </div>
                                     <label class="control-label ">NO OF HOLIDAY:</label>
                                     <div class="controls">
-                                        <input type="text" value="<?php echo $mandLeave?>" readonly="true"> 
+                                        <input type="text" value="<?php echo $mandLeave ?>" readonly="true"> 
                                     </div>
                                     <label class="control-label ">NO OF WEEK END:</label>
                                     <div class="controls">
@@ -115,54 +114,58 @@ function isWeekend($date) {
                                     </div>
 
 
-                <div class="container-fluid">
-        <hr>
-        <div class="row-fluid">
-            <div class="span12">
-                <div class="widget-box">
-                    <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
-                        <h5> LEAVE LIST</h5>
-                    </div>
-                    <div class="widget-content nopadding">
-                        <table class="table table-bordered data-table"  style="font-size: 11px;">
-                            <thead>
-                                <tr>
-                                    <th>Date</th>
-                                    <th>Type</th>
-                                    <th>Description</th>
-                                   
-                                </tr>
-                            </thead>
-                            <tbody>
-                                  <?php
-                                foreach ($mandType as $result) {
-                                    ?>
-                               
-                                    <tr class="gradeX">
-                                       <td style="color:MediumBlue "><?php echo $result["date_leave"] ?></td>
-                                        <td style="color:DarkCyan "><?php echo  $result["name"] ?></td>
-                                        <td style="color:MediumBlue">
-                                        <?php 
-                                        if($result["leaveType"] == 1 ){
-                                          echo  $result["description"];
-                                        }else{
-                                          echo findSaturdayOrSunday( $result["date_leave"]) ;
-                                        }
-                                        
-                                        ?>
-                                        </td>
-                                        
-                                    </tr>  
-                                     <?php
-                                }
-                                ?>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                                    <div class="container-fluid">
+                                        <hr>
+                                        <div class="row-fluid">
+                                            <div class="span12">
+                                                <div class="widget-box">
+                                                    <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
+                                                        <h5> LEAVE LIST</h5>
+                                                    </div>
+                                                    <div class="widget-content nopadding">
+                                                        <table class="table table-bordered data-table"  style="font-size: 11px;">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th style="width: 2%;">#</th>
+                                                                    <th>Date</th>
+                                                                    <th>Type</th>
+                                                                    <th>Description</th>
+
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <?php
+                                                                $srno = 1;
+                                                                foreach ($mandType as $result) {
+                                                                    if ($result["date_leave"] != "") {
+                                                                        ?>
+                                                                        <tr class="gradeX">
+                                                                            <td style="color:MediumBlue "><?php echo $srno ?></td>
+                                                                            <td style="color:MediumBlue "><?php echo $result["date_leave"] ?></td>
+                                                                            <td style="color:DarkCyan "><?php echo $result["name"] ?></td>
+                                                                            <td style="color:MediumBlue">
+                                                                                <?php
+                                                                                if ($result["leaveType"] == 1) {
+                                                                                    echo $result["description"];
+                                                                                } else {
+                                                                                    echo findSaturdayOrSunday($result["date_leave"]);
+                                                                                }
+                                                                                ?>
+                                                                            </td>
+
+                                                                        </tr>  
+                                                                        <?php
+                                                                        $srno++;
+                                                                    }
+                                                                }
+                                                                ?>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
                                     <label class="control-label ">NO OF DAYS:</label>
                                     <div class="controls">
@@ -226,10 +229,10 @@ function getCalculate() {
 
 function findSaturdayOrSunday($date) {
     $weekDay = date('w', strtotime($date));
-    if($weekDay == 0){
-    return "Sunday";
-    }else{
-    return "Saturday";
+    if ($weekDay == 0) {
+        return "Sunday";
+    } else {
+        return "Saturday";
     }
 }
 
@@ -240,7 +243,7 @@ function createDateRangeArray($strDateFrom, $strDateTo) {
     if ($iDateTo >= $iDateFrom) {
         array_push($aryRange, date('Y-m-d', $iDateFrom)); // first entry
         while ($iDateFrom < $iDateTo) {
-            $iDateFrom+=86400; // add 24 hours
+            $iDateFrom += 86400; // add 24 hours
             array_push($aryRange, date('Y-m-d', $iDateFrom));
         }
     }
@@ -248,21 +251,21 @@ function createDateRangeArray($strDateFrom, $strDateTo) {
 }
 ?>
 //<script type="text/javascript">
-  //  $(document).ready(function () {
+    //  $(document).ready(function () {
     //    $("#submit").button({icons: {secondary: "ui-icon-info"}});
-      //  $("#no_days").addClass("ui-state-default ui-corner-all");
-        //var demoSelectValue = $("#no_days").val();
-        //if (demoSelectValue == "") {
-          //  $("#submit").button("disable")
-       // }
-        //$("#no_days").change(function () {
-          //  if ($(this).val() == "(parseInt(no_days) > parseInt(balanceLeave))") {
-            //    alert("No of Days Exceed Limit...kindly recheck and apply");
-              //  $("#submit").button("disable")
-           // }
-            //else {
-              //  $("#submit").button("enable")
-           // }
-      //  });
-  //  });
+    //  $("#no_days").addClass("ui-state-default ui-corner-all");
+    //var demoSelectValue = $("#no_days").val();
+    //if (demoSelectValue == "") {
+    //  $("#submit").button("disable")
+    // }
+    //$("#no_days").change(function () {
+    //  if ($(this).val() == "(parseInt(no_days) > parseInt(balanceLeave))") {
+    //    alert("No of Days Exceed Limit...kindly recheck and apply");
+    //  $("#submit").button("disable")
+    // }
+    //else {
+    //  $("#submit").button("enable")
+    // }
+    //  });
+    //  });
 //</script>
