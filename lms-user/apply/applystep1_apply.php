@@ -16,6 +16,8 @@ if (isset($_POST["submit"])) {
         } else {
             $_POST["leave_type"] = $type;
         }
+        $_POST["isActive"] = "N";
+        $_POST["hasApprove"] = "N";
         $nextId = MysqlConnection::insert("tbl_leavehistorynew", $_POST);
         header("location:mainpage.php?requestPage=applystep2_apply&nextId=$nextId");
     }

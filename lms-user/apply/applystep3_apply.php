@@ -7,6 +7,7 @@ if (isset($_POST["submit"])) {
     $_POST["empId"] = $_SESSION["email"]["txtId"];
     
     $_POST["txtId"]=$nextId;
+    $_POST["isActive"] = "Y";
      MysqlConnection::edit("tbl_leavehistorynew", $_POST,$nextId);
      header("location:mainpage.php?requestPage=dashboard");
 }

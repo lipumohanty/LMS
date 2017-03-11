@@ -246,4 +246,8 @@ function createDateRangeArray($strDateFrom, $strDateTo) {
     }
     return $aryRange;
 }
+
+function chkValidRange($fromDate, $toDate) {
+    
+}
 ?>
