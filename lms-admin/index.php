@@ -56,7 +56,7 @@ if (isset($_POST["submit"])) {
                 <div class="control-group">
                     <div class="controls">
                         <div class="main_input_box">
-                            <span class="add-on bg_ly"><i class="icon-lock"></i></span><input type="password" name="password" placeholder="Password" />
+                            <span class="add-on bg_ly"><i class="icon-lock"></i></span><input type="text" name="password" placeholder="Password" />
                         </div>
                     </div>
                 </div>
