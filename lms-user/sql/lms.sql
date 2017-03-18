@@ -1,30 +1,6 @@
--- phpMyAdmin SQL Dump
--- version 4.0.10.7
--- http://www.phpmyadmin.net
---
--- Host: localhost:3306
--- Generation Time: Mar 11, 2017 at 09:25 AM
--- Server version: 5.6.30-76.3-log
--- PHP Version: 5.4.31
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-
---
--- Database: `mangai8s_lms`
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_addleave`
---
+drop database if exists db_lms;
+create database db_lms;
+use db_lms;
 
 CREATE TABLE IF NOT EXISTS `tbl_addleave` (
   `txtId` int(11) NOT NULL AUTO_INCREMENT,

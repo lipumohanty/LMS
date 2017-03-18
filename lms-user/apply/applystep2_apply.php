@@ -12,6 +12,10 @@ if (isset($_POST["brnCheack"])) {
 
     $listDate = createDateRangeArray($fromDate, $todate);
 
+    $hasValidSelection = hasValidSelection($listDate);
+    if ($hasValidSelection) {
+        $errorleave = "<p style='color:red'>Please select proper range !!!</p>";
+    }
     $mandLeave = 0;
     $mandType[] = array();
     $isWeekEnd = 0;
@@ -247,7 +251,27 @@ function createDateRangeArray($strDateFrom, $strDateTo) {
     return $aryRange;
 }
 
-function chkValidRange($fromDate, $toDate) {
-    
+function hasValidSelection($listDate) {
+    $userprimary = $_SESSION["email"]["txtId"];
+    $inbetween = array();
+    foreach ($listDate as $value) {
+        array_push($inbetween, "'" . $value . "'");
+    }
+    $implod = implode(",", $inbetween);
+    $sqlcustomfromdate = "SELECT `txtId` FROM `tbl_leavehistorynew` WHERE `fromdate` IN($implod) AND hasApprove = 'Y' AND empId = '$userprimary' ";
+    $resultfromdate = MysqlConnection::fetchCustom($sqlcustomfromdate);
+    $sqlcustomtodate = "SELECT `txtId` FROM `tbl_leavehistorynew` WHERE `todate` IN($implod)  AND hasApprove = 'Y'  AND empId = '$userprimary'";
+    $resulttodate = MysqlConnection::fetchCustom($sqlcustomtodate);
+
+    if (count($resultfromdate) == 0 && count($resulttodate)) {
+        return FALSE;
+    }
+    return TRUE;
+}
+
+function getPreRestrictedLeaves() {
+    $userprimary = $_SESSION["email"]["txtId"];
+    $sqlrestricted = "SELECT SUM(`restricted`) `restricted` FROM `tbl_leavehistorynew` WHERE `empId` = $userprimary ";
+    MysqlConnection::fetchCustom($sqlrestricted);
 }
 ?>
